@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Aula del Repaso · Módulo 1</title>
+<meta name="description" content="Portal de estudio del Área 1 del temario CNBV PLD/FT, agosto 2026: una herramienta por tema, el simulacro mixto y la biblioteca de fuentes.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Inter:wght@400;500;600&display=swap">
+<style>
+/* Layout: banda carbón de marca arriba, columna única sobre crema; entradas numeradas por subárea; biblioteca de fuentes en renglones; pie carbón.
+   360Educa no tiene tema oscuro: la página se queda en crema en cualquier tema del visor. */
+:root{
+  --crema:#faf5ec; --blanco:#ffffff; --negro:#1b1b1e; --carbon:#393e41;
+  --gris:#747975; --rule:#dfdede; --verde:#64c27b; --verde-claro:#87d895;
+  --tinte:rgba(100,194,123,.14); --apagado:#efeae0;
+  --display:Montserrat, Arial, sans-serif; --sans:Inter, Arial, sans-serif;
+  --r-sm:6px; --r-md:12px; --r-lg:20px; --pill:999px;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+body{background:var(--crema);color:var(--negro);font-family:var(--sans);font-size:16px;line-height:1.6;margin:0}
+a{color:var(--negro)}
+a:focus-visible{outline:3px solid var(--carbon);outline-offset:3px;border-radius:var(--r-md)}
+.wrap{max-width:860px;margin:0 auto;padding-inline:20px}
+
+/* Encabezado */
+.top{background:var(--carbon);color:var(--blanco);padding-block:28px 40px}
+.marcas{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center;font-family:var(--display);font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase}
+.marcas span+span::before{content:"·";margin-right:14px;color:var(--verde-claro)}
+.eyebrow{font-family:var(--display);font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;margin:40px 0 10px;color:#d9dbdc}
+h1{font-family:var(--display);font-weight:800;font-size:clamp(34px,7vw,52px);line-height:1.08;margin:0;text-wrap:balance}
+h1 em{font-style:normal;display:inline-block;background:var(--verde);color:var(--negro);padding:0 .22em;border-radius:var(--r-sm)}
+.lede{max-width:60ch;margin:16px 0 0;color:#eceeef;font-size:17px}
+.acceso{display:inline-flex;align-items:center;gap:8px;margin-top:22px;padding:6px 14px;border:1px solid rgba(255,255,255,.35);border-radius:var(--pill);font-size:13px;color:#eceeef}
+.acceso svg{flex:none}
+.membrete{height:6px;background:var(--verde-claro)}
+
+/* Secciones */
+main{padding-block:48px 64px;display:grid;gap:64px}
+.sec-head{display:grid;gap:6px;margin-bottom:24px}
+h2{font-family:var(--display);font-weight:800;font-size:28px;line-height:1.2;margin:0;text-wrap:balance}
+.sec-head p{margin:0;max-width:62ch;color:var(--carbon)}
+
+.grupo{display:grid;gap:12px}
+.grupo+.grupo{margin-top:32px}
+.grupo h3{display:flex;align-items:baseline;gap:10px;margin:0 0 4px;font-family:var(--display);font-weight:700;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--carbon)}
+.grupo h3 b{font-weight:800;background:var(--verde);color:var(--negro);padding:2px 9px;border-radius:var(--pill);letter-spacing:.04em}
+
+/* Entradas */
+.entrada{display:grid;grid-template-columns:112px 1fr;background:var(--blanco);border:1px solid var(--rule);border-radius:var(--r-md);overflow:hidden;text-decoration:none;color:var(--negro);transition:border-color .15s, transform .15s}
+a.entrada:hover{border-color:var(--carbon);transform:translateY(-1px)}
+.num{background:var(--verde);display:flex;align-items:flex-start;justify-content:center;padding:20px 8px;font-family:var(--display);font-weight:800;font-size:26px;line-height:1;font-variant-numeric:tabular-nums;letter-spacing:-.01em}
+.cuerpo{padding:18px 20px;display:grid;gap:4px;min-width:0}
+.cuerpo h4{font-family:var(--display);font-weight:700;font-size:20px;line-height:1.25;margin:0;text-wrap:balance}
+.fuente{font-size:13px;color:var(--carbon);font-weight:500}
+.que{font-size:15px;margin:2px 0 0}
+.abrir{margin-top:8px;font-size:14px;font-weight:600;display:inline-flex;gap:6px;align-items:center;text-decoration:underline;text-underline-offset:3px}
+.entrada.pronto{background:transparent;border-style:dashed}
+.entrada.pronto .num{background:var(--apagado);color:var(--carbon)}
+.chip{justify-self:start;margin-top:8px;font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:3px 10px;border-radius:var(--pill);border:1px solid var(--carbon);color:var(--carbon)}
+
+/* Biblioteca */
+.guia{background:var(--blanco);border:1px solid var(--rule);border-radius:var(--r-md);padding:18px 20px;display:grid;gap:10px;font-size:15px}
+.guia p{margin:0}
+.leyenda{display:flex;flex-wrap:wrap;gap:8px 18px;align-items:center;font-size:13px;color:var(--carbon)}
+.leyenda span{display:inline-flex;gap:8px;align-items:center}
+.lista{margin-top:20px;border-top:1px solid var(--rule)}
+.doc{display:grid;grid-template-columns:96px 1fr;gap:16px;padding-block:18px;border-bottom:1px solid var(--rule)}
+.tag{justify-self:start;font-family:var(--display);font-weight:800;font-size:13px;letter-spacing:.04em;padding:5px 10px;border-radius:var(--r-sm);background:var(--verde);color:var(--negro);white-space:nowrap}
+.tag.guia-tag{background:var(--blanco);border:1.5px solid var(--carbon)}
+.doc-body{min-width:0;display:grid;gap:4px}
+.doc-body h4{margin:0;font-family:var(--display);font-weight:700;font-size:17px;line-height:1.3}
+.meta{display:flex;flex-wrap:wrap;gap:4px 12px;font-size:13px;color:var(--carbon);font-variant-numeric:tabular-nums}
+.nonorma{font-weight:600;text-transform:uppercase;letter-spacing:.06em;font-size:11px;border:1px solid var(--carbon);border-radius:var(--pill);padding:1px 8px}
+.doc-body p{margin:0;font-size:15px}
+.doc-body .ext{font-size:14px;font-weight:600;text-underline-offset:3px;justify-self:start;margin-top:2px}
+.pend{font-size:13px;color:var(--carbon);font-style:italic}
+
+/* Pie */
+footer{background:var(--carbon);color:#eceeef;padding-block:32px;font-size:13px}
+footer .wrap{display:grid;gap:10px}
+.firma{font-family:var(--display);font-weight:800;font-size:18px;color:var(--blanco);letter-spacing:.02em}
+.firma small{font-family:var(--sans);font-weight:500;font-size:13px;color:#d9dbdc;letter-spacing:0;margin-left:6px}
+footer p{margin:0;max-width:70ch}
+
+@media (max-width:560px){
+  .entrada{grid-template-columns:1fr}
+  .num{justify-content:flex-start;padding:14px 20px 12px;font-size:24px}
+  .doc{grid-template-columns:1fr;gap:10px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <div class="marcas" aria-label="Marcas"><span>GMC360</span><span>360EDUCA</span></div>
+    <p class="eyebrow">Certificación CNBV PLD/FT · 2ª convocatoria 2026</p>
+    <h1>Aula del Repaso · <em>Módulo 1</em></h1>
+    <p class="lede">Conocimientos básicos en PLD/FT: conceptos y penas, organismos internacionales y autoridades nacionales. Aquí tienes una herramienta de estudio por cada tema del Área 1 del temario de agosto de 2026, un simulacro que los mezcla y la biblioteca con las fuentes que los sostienen.</p>
+    <p class="acceso"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>Material exclusivo para alumnos inscritos</p>
+  </div>
+</header>
+<div class="membrete" aria-hidden="true"></div>
+
+<main class="wrap">
+  <section aria-labelledby="t-temas">
+    <div class="sec-head">
+      <h2 id="t-temas">Los 10 temas del Área 1</h2>
+      <p>Cada tema abre su sesión en la parte que lo explica: mapa para ver el todo, Modo recitar para memorizar y simulador con reactivos de opción múltiple. Recórrelos en orden: primero qué es cada delito y cuánto cuesta, luego quién fija el estándar en el mundo y al final quién lo aplica en México.</p>
+    </div>
+    <div id="entradas"></div>
+  </section>
+
+  <section aria-labelledby="t-bib">
+    <div class="sec-head">
+      <h2 id="t-bib">Biblioteca</h2>
+    </div>
+    <div class="guia">
+      <p>Son las 9 fuentes que el temario de agosto de 2026 enlista para el Área 1. Úsala para ir al texto oficial cuando una respuesta del simulador te deje duda, y para saber de qué documento sale cada tema.</p>
+      <p>Cómo leerla: la etiqueta de la izquierda es la abreviatura con la que la citamos en clase y en las apps. La fecha es la de publicación o de la última reforma que marca el temario.</p>
+      <div class="leyenda">
+        <span><b class="tag">ABC</b> Norma: obliga</span>
+        <span><b class="tag guia-tag">ABC</b> Guía, estándar o diagnóstico: orienta, no obliga</span>
+      </div>
+    </div>
+    <div class="lista" id="biblioteca"></div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="firma">360EDUCA<small>by GMC360</small></div>
+    <p>Material de estudio para la certificación de la CNBV en PLD/FT. No sustituye la consulta de los textos oficiales publicados en el DOF y por cada emisor.</p>
+  </div>
+</footer>
+
+<script>
+/* ===== CONFIGURACIÓN DE LIGAS =====
+   Las herramientas apuntan a las carpetas del propio sitio (rutas relativas): funcionan igual en la vista
+   del artifact y en Netlify, sin cambiar nada. Una liga vacía ("") muestra la entrada como «Próximamente».
+   Biblioteca: ligas oficiales del temario de agosto 2026. */
+const LIGAS = {
+  herramientas: {
+    "1.1.1": "m1-s1-conceptos/index.html#etapas",
+    "1.1.2": "m1-s1-conceptos/index.html#lista-ft",
+    "1.1.3": "m1-s1-conceptos/index.html#corrupcion",
+    "1.1.4": "m1-s1-conceptos/index.html#comparativo",
+    "1.1.5": "m1-s1-conceptos/index.html#comparativo",
+    "1.2.1": "m1-s2-organismos/index.html#mapa",
+    "1.2.2": "m1-s2-organismos/index.html#organos",
+    "1.2.3": "m1-s3-recomendaciones/index.html#mapa",
+    "1.3.1": "m1-s4-autoridades/index.html#objeto",
+    "1.3.2": "m1-s4-autoridades/index.html#uif",
+    "simulacro": "m1-simulacro/index.html"
+  },
+  biblioteca: {
+    "VSPP": "https://www.cnbv.gob.mx/PrevencionDeLavadoDeDinero/Documents/VSPP_La_de_Di_300419.pdf",
+    "CPF": "https://www.diputados.gob.mx/LeyesBiblio/pdf/CPF.pdf",
+    "RI CNBV": "https://www.cnbv.gob.mx/Normatividad/Reglamento%20Interior%20de%20la%20Comisi%C3%B3n%20Nacional%20Bancaria%20y%20de%20Valores.pdf",
+    "RISHCP": "https://www.gob.mx/cms/uploads/attachment/file/1003083/RISCHP_compilado_24febrero2025.pdf",
+    "GAFI 40": "https://biblioteca.gafilat.org/wp-content/uploads/2026/01/Recomendaciones-y-Metodologia-Diciembre-2025.pdf",
+    "Mandato": "https://www.cnbv.gob.mx/PrevencionDeLavadoDeDinero/Documents/Mandato_GAFI_2012-2020%20ESP%20versi%C3%B3n%20final%20mayo11.pdf",
+    "OI": "https://www.gob.mx/cnbv/acciones-y-programas/organismos-internacionales-388698",
+    "ENR": "https://www.pld.hacienda.gob.mx/work/models/PLD/documentos/enr2023.pdf",
+    "GA": "https://www.cnbv.gob.mx/PrevencionDeLavadoDeDinero/Documents/Guia_Anticorrupcion_2020.pdf"
+  }
+};
+/* ===== FIN DE CONFIGURACIÓN ===== */
+
+const GRUPOS = [
+  {clave:"1.1", nombre:"Conceptos básicos PLD/FT", temas:[
+    {n:"1.1.1", t:"Lavado de dinero", f:"Sesión 1 · VSPP «Lavado de Dinero», CNBV, 30-abr-2019", q:"El concepto de la CNBV y las tres etapas con sus ejemplos: colocación, estratificación e integración."},
+    {n:"1.1.2", t:"Financiamiento al terrorismo", f:"Sesión 1 · CPF, art. 139 Quáter", q:"Aportar o recaudar sabiendo el destino, y la lista de delitos cuyo financiamiento es FT: cinco del CPF y una ley especial."},
+    {n:"1.1.3", t:"Corrupción", f:"Sesión 1 · Guía Anticorrupción CNBV 2020, apartado I.1.3", q:"La definición de Transparencia Internacional y sus tres tipos: a gran escala, actos menores y política."},
+    {n:"1.1.4", t:"Penas del delito de operaciones con recursos de procedencia ilícita", f:"Sesión 1 · CPF, arts. 400 Bis y 400 Bis 1", q:"De 5 a 15 años y de 1,000 a 5,000 días multa, los tres agravantes y la denuncia de la SHCP."},
+    {n:"1.1.5", t:"Penas del delito de financiamiento al terrorismo", f:"Sesión 1 · CPF, arts. 139 Quáter, 139 y 139 Quinquies", q:"La misma pena del terrorismo: de 15 a 40 años y de 400 a 1,200 veces la UMA; y la pena por encubrir."}
+  ]},
+  {clave:"1.2", nombre:"Organismos internacionales", temas:[
+    {n:"1.2.1", t:"Organismos y foros internacionales", f:"Sesión 2 · CNBV, Organismos internacionales; NI R.6, R.7 y R.29", q:"ONU, Basilea, Wolfsberg, Egmont, GAFI y GAFILAT, y las resoluciones 1267, 1373 y 1540 del Consejo de Seguridad."},
+    {n:"1.2.2", t:"Grupo de Acción Financiera Internacional", f:"Sesión 2 · Mandato del GAFI 2012-2020; Metodología dic-2025", q:"Quién decide, conduce, aconseja y ejecuta: Pleno, Presidente, Grupo Directivo y Secretaría; membresía y calificaciones."},
+    {n:"1.2.3", t:"Recomendaciones del GAFI", f:"Sesión 3 · Las 40 Recomendaciones y sus Notas interpretativas", q:"Las 40 en sus siete secciones, de la A a la G, lo que agrega cada Nota y las parejas que se confunden."}
+  ]},
+  {clave:"1.3", nombre:"Autoridades nacionales", temas:[
+    {n:"1.3.1", t:"Régimen de prevención", f:"Sesión 4 · ENR 2023; VSPP, participantes del régimen preventivo", q:"La vida de un reporte: quién pone las reglas, quién cumple y vigila, quién analiza y quién persigue."},
+    {n:"1.3.2", t:"Autoridades nacionales en PLD/FT", f:"Sesión 4 · RISHCP, art. 10; Reglamento Interior de la CNBV", q:"Qué hace la UIF y qué hace la CNBV: recibir y analizar no es supervisar, y supervisar no es sancionar."}
+  ]}
+];
+
+const SIMULACRO = {n:"Área 1", t:"Simulacro mixto del Módulo 1", f:"Los bancos de todas las sesiones, con sus ids originales", q:"Simulacros de 30 o 50 que mezclan los temas como en el examen: S3 30 % · S2 27 % · S1 23 % · S4 20 %."};
+
+const FUENTES = [
+  {e:"VSPP", nombre:"Documento de la CNBV relativo al lavado de dinero", fecha:"CNBV · 30-abr-2019", norma:false,
+   uso:"Concepto y etapas del lavado (1.1.1) y participantes del régimen preventivo (1.3.1). No es norma: es material informativo de la CNBV."},
+  {e:"CPF", nombre:"Código Penal Federal", fecha:"DOF 14-ago-1931 · última reforma 13-mar-2026", norma:true,
+   uso:"Los delitos de operaciones con recursos de procedencia ilícita (art. 400 Bis) y de FT (art. 139 Quáter), con sus penas. Se estudia en 1.1.2, 1.1.4 y 1.1.5."},
+  {e:"RI CNBV", nombre:"Reglamento Interior de la Comisión Nacional Bancaria y de Valores", fecha:"DOF 28-feb-2022", norma:true,
+   uso:"Facultades de la CNBV y de sus direcciones generales de prevención de operaciones con recursos de procedencia ilícita. Se estudia en 1.3.2."},
+  {e:"RISHCP", nombre:"Reglamento Interior de la SHCP · artículo 10", fecha:"Como lo cita el temario: DOF 11-sep-1996, última reforma 24-feb-2025", norma:true,
+   uso:"Las atribuciones de la Unidad de Inteligencia Financiera. Se estudia en 1.3.2. La liga del temario lleva al compilado del Reglamento publicado el 6-mar-2023, con reformas de 2024 y 2025."},
+  {e:"GAFI 40", nombre:"Estándares internacionales sobre la lucha contra el lavado de activos, el financiamiento del terrorismo y la proliferación (40 Recomendaciones del GAFI)", fecha:"GAFI · diciembre 2025", norma:false,
+   uso:"Las 40 Recomendaciones, sus Notas interpretativas y la Metodología. Se estudia en 1.2.3; la Sesión 2 usa además las R.6, R.7 y R.29. No es norma mexicana: es el estándar internacional."},
+  {e:"Mandato", nombre:"Grupo de Acción Financiera Internacional · Mandato (2012-2020)", fecha:"GAFI · abril 2012", norma:false,
+   uso:"Objetivos, órganos y membresía del GAFI. Se estudia en 1.2.2. No es norma: el propio Mandato dice que no está destinado a crear derechos u obligaciones legales (párr. 48)."},
+  {e:"OI", nombre:"Organismos internacionales: Comité de Basilea, GAFI, Grupo Egmont y Grupo Wolfsberg", fecha:"CNBV · gob.mx", norma:false,
+   uso:"Cómo define la CNBV a cada organismo y foro. Se estudia en 1.2.1. No es norma: es la página informativa de la CNBV."},
+  {e:"ENR", nombre:"Evaluación Nacional de Riesgos de LD y FT 2023", fecha:"Noviembre 2023", norma:false,
+   uso:"Cómo describe la autoridad el régimen de prevención y a sus participantes. Se estudia en 1.3.1. No es norma: es un diagnóstico de la autoridad."},
+  {e:"GA", nombre:"Guía Anticorrupción CNBV · Apartado I.1.3 Transparencia Internacional", fecha:"2020", norma:false,
+   uso:"La definición y los tipos de corrupción de Transparencia Internacional. Se estudia en 1.1.3. No es norma: es una guía de la CNBV."}
+];
+
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const flecha = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
+
+const entrada = (x, url, boton) => {
+  const dentro = `<div class="num">${esc(x.n)}</div>
+    <div class="cuerpo">
+      <h4>${esc(x.t)}</h4>
+      <span class="fuente">${esc(x.f)}</span>
+      <p class="que">${esc(x.q)}</p>
+      ${url ? `<span class="abrir">${boton} ${flecha}</span>` : `<span class="chip">Próximamente</span>`}
+    </div>`;
+  return url
+    ? `<a class="entrada" href="${esc(url)}">${dentro}</a>`
+    : `<div class="entrada pronto" aria-disabled="true">${dentro}</div>`;
+};
+
+document.getElementById("entradas").innerHTML = GRUPOS.map(g => `
+  <div class="grupo">
+    <h3><b>${g.clave}</b>${esc(g.nombre)}</h3>
+    ${g.temas.map(x => entrada(x, LIGAS.herramientas[x.n], "Abrir herramienta")).join("")}
+  </div>`).join("") + `
+  <div class="grupo">
+    <h3><b>Área 1</b>Para cerrar</h3>
+    ${entrada(SIMULACRO, LIGAS.herramientas.simulacro, "Hacer el simulacro")}
+  </div>`;
+
+document.getElementById("biblioteca").innerHTML = FUENTES.map(d => {
+  const url = LIGAS.biblioteca[d.e];
+  return `<div class="doc">
+    <b class="tag${d.norma ? "" : " guia-tag"}">${esc(d.e)}</b>
+    <div class="doc-body">
+      <h4>${esc(d.nombre)}</h4>
+      <div class="meta"><span>${esc(d.fecha)}</span>${d.norma ? "" : '<span class="nonorma">No es norma</span>'}</div>
+      <p>${esc(d.uso)}</p>
+      ${url ? `<a class="ext" href="${esc(url)}" target="_blank" rel="noopener">Texto oficial ↗</a>` : `<span class="pend">Liga oficial por confirmar</span>`}
+    </div>
+  </div>`;
+}).join("");
+</script>
+</body>
+</html>
