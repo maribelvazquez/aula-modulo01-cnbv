@@ -1,0 +1,399 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<!--aula-franja:inicio-->
+<style>
+#aula-franja{display:flex;align-items:center;gap:8px;padding:8px 16px;background:#1b1b1e;color:#fff;overflow-x:auto;font:600 13px Montserrat,Arial,sans-serif;position:relative;z-index:2147483000}
+#aula-franja a,#aula-franja span{color:#fff;text-decoration:none;white-space:nowrap}
+#aula-franja .sb-mod{font-weight:700;letter-spacing:.04em;margin-right:4px}
+#aula-franja .sb-p{display:inline-flex;align-items:center;justify-content:center;min-width:32px;height:32px;padding:0 10px;border-radius:999px;border:1px solid rgba(255,255,255,.35);font-weight:700;flex:none}
+#aula-franja .sb-p[aria-current="page"]{background:#64c27b;border-color:#64c27b;color:#1b1b1e}
+#aula-franja .sb-p.off{opacity:.45;border-style:dashed}
+#aula-franja .sb-sep{width:1px;height:20px;background:rgba(255,255,255,.3);flex:none}
+#aula-franja .sb-cta{background:#a663cc;border-color:#a663cc;color:#fff}
+#aula-franja .sb-ses{margin-left:auto;padding-left:12px;color:rgba(255,255,255,.8)}
+@media (max-width:700px){#aula-franja .sb-ses{display:none}}
+</style>
+<nav id="aula-franja" aria-label="Páginas del aula"></nav>
+<script>
+(function(){
+ var S={"nombre":"Módulo 1","raiz":"../","actual":"m1-quien-hace-que","paginas":[{"n":"1","carpeta":"m1-s1-conceptos","pregunta":"Conceptos básicos","estado":"integrada"},{"n":"2","carpeta":"m1-s2-organismos","pregunta":"Organismos y GAFI","estado":"integrada"},{"n":"3","carpeta":"m1-s3-recomendaciones","pregunta":"Las 40 Recomendaciones","estado":"integrada"},{"n":"4","carpeta":"m1-s4-autoridades","pregunta":"Autoridades nacionales","estado":"integrada"},{"n":"¿Quién?","carpeta":"m1-quien-hace-que","pregunta":"¿Quién hace qué?","estado":"integrada","tip":"¿Quién hace qué? · entrenador"}],"integrador":"simulacro","integrador_texto":"Simulacro mixto","integrador_href":"m1-simulacro/index.html"},e=function(s){return String(s==null?"":s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})};
+ var et=S.etiqueta_n!=null?S.etiqueta_n:"Sesión ",act=S.actual||"",ac=null;
+ var h='<a class="sb-mod" href="'+e(S.raiz)+'index.html">'+e(S.nombre)+'</a><span class="sb-sep"></span>';
+ S.paginas.forEach(function(p){var tip=p.tip||(et+p.n+" · "+(p.pregunta||""));if(p.carpeta===act)ac=p;
+  if(p.estado&&p.estado!=="integrada")h+='<span class="sb-p off" title="'+e(tip)+'">'+e(p.n)+'</span>';
+  else h+='<a class="sb-p" href="'+e(S.raiz+p.carpeta)+'/index.html" title="'+e(tip)+'"'+(p.carpeta===act?' aria-current="page"':'')+'>'+e(p.n)+'</a>';});
+ if(S.integrador)h+='<span class="sb-sep"></span><a class="sb-p sb-cta" href="'+e(S.raiz+S.integrador_href)+'">'+e(S.integrador_texto||"Integrador")+'</a>';
+ if(ac)h+='<span class="sb-ses">'+(ac.tip?e(ac.tip):e(et)+e(ac.n)+' · '+e(ac.pregunta||""))+'</span>';
+ document.getElementById("aula-franja").innerHTML=h;
+})();
+</script>
+<!--aula-franja:fin-->
+<title>¿Quién hace qué? · Módulo 1</title>
+<meta name="description" content="Entrenador de relaciones del Módulo 1 CNBV PLD/FT: organismos, GAFI, resoluciones de la ONU y autoridades mexicanas.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Inter:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: banda carbón como el Aula del Repaso; pestañas pegajosas; cada familia con su color de la guía 360Educa.
+   360Educa no tiene tema oscuro: la página se queda en crema en cualquier tema del visor (decisión de marca). */
+:root{
+  --crema:#faf5ec; --blanco:#ffffff; --negro:#1b1b1e; --carbon:#393e41; --linea:rgba(57,62,65,.16);
+  --verde:#64c27b; --verde-claro:#87d895; --morado:#a663cc; --turquesa:#80bcb5; --amarillo:#faa916; --coral:#ff8361;
+  --ok:rgba(100,194,123,.18); --mal:rgba(255,131,97,.20); --tinte:#f3eddf;
+  --display:"Montserrat",Arial,system-ui,sans-serif; --sans:"Inter",Arial,system-ui,-apple-system,"Segoe UI",sans-serif;
+  --r:12px; color-scheme:light;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-padding-top:120px}
+body{margin:0;background:var(--crema);color:var(--negro);font-family:var(--sans);font-size:16px;line-height:1.55}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--morado);outline-offset:2px;border-radius:8px}
+.wrap{max-width:1080px;margin:0 auto;padding-inline:16px}
+h1,h2,h3,h4{font-family:var(--display);margin:0;line-height:1.12;text-wrap:balance}
+
+/* encabezado */
+.top{background:var(--carbon);color:var(--blanco);padding-block:22px 28px}
+.marcas{font-family:var(--display);font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#d9dbdc}
+.marcas a{color:#d9dbdc}
+h1{font-weight:800;font-size:clamp(32px,6vw,52px);margin-top:18px;color:var(--blanco)}
+h1 em{font-style:normal;background:var(--verde);color:var(--negro);padding:0 .2em;border-radius:6px}
+.lede{max-width:64ch;margin:12px 0 0;color:#eceeef}
+.membrete{height:6px;background:var(--verde-claro)}
+
+/* pestañas */
+.tabs{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:rgba(250,245,236,.96);backdrop-filter:blur(6px);border-bottom:1px solid var(--linea)}
+.tabs .wrap{display:flex;gap:6px;overflow-x:auto;padding-block:10px;scrollbar-width:none}
+.tab{flex:none;border:1px solid var(--linea);background:var(--blanco);border-radius:999px;padding:7px 14px;font-weight:600;font-size:14px;white-space:nowrap}
+.tab[aria-selected="true"]{background:var(--morado);border-color:var(--morado);color:var(--blanco);font-weight:700}
+
+main{padding-block:24px 64px}
+.panel{display:grid;gap:18px}
+.head{display:grid;gap:6px}
+.head h2{font-size:clamp(24px,3.4vw,32px);font-weight:800}
+.head p{margin:0;color:var(--carbon);max-width:68ch}
+
+/* familias */
+.fams{display:flex;flex-wrap:wrap;gap:8px}
+.fam{border:2px solid var(--c,var(--carbon));background:var(--blanco);border-radius:999px;padding:6px 12px;font-weight:600;font-size:14px}
+.fam[aria-pressed="true"]{background:var(--c,var(--carbon));color:var(--ci,#fff)}
+.f-org{--c:var(--verde);--ci:var(--negro)} .f-gafi{--c:var(--morado);--ci:#fff} .f-memb{--c:var(--turquesa);--ci:var(--negro)}
+.f-res{--c:var(--amarillo);--ci:var(--negro)} .f-mx{--c:var(--coral);--ci:var(--negro)} .f-all{--c:var(--carbon);--ci:#fff}
+.famq{font-family:var(--display);font-weight:700;font-size:15px;color:var(--carbon);margin:0}
+
+/* tarjetas de actor */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px;align-items:start}
+.card{background:var(--blanco);border:1px solid var(--linea);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column;min-width:0}
+.card .ch{background:var(--c);color:var(--ci);padding:12px 16px;display:grid;gap:2px}
+.card .ch b{font-family:var(--display);font-weight:800;font-size:22px;line-height:1.1}
+.card .ch span{font-size:13px;font-weight:600;opacity:.92}
+.card .cb{padding:14px 16px;display:grid;gap:10px;min-width:0}
+.mesa{font-size:13px;color:var(--carbon)}
+.mesa b{font-family:var(--display);font-size:11px;letter-spacing:.1em;text-transform:uppercase;margin-right:6px}
+.gancho{font-weight:700;font-size:16px;line-height:1.35;background:var(--tinte);border-radius:8px;padding:10px 12px}
+blockquote{margin:0;font-size:14.5px;border-left:3px solid var(--c);padding-left:10px}
+.src{font-size:12px;color:var(--carbon);font-weight:600}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font-size:12px;font-weight:600;border:1px solid var(--linea);background:var(--crema);border-radius:999px;padding:2px 9px}
+.lbl{font-family:var(--display);font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--carbon)}
+details{border-top:1px solid var(--linea);padding-top:8px}
+summary{font-weight:700;font-size:14px;cursor:pointer}
+details ul{margin:8px 0 0;padding-left:18px;font-size:14px;display:grid;gap:6px}
+details li small{display:block;color:var(--carbon);font-size:12px;font-weight:600}
+.clase{display:inline-block;font-size:10.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;border:1px dashed var(--carbon);border-radius:999px;padding:0 7px;margin-left:4px}
+.conf{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.lnk{border:1px solid var(--carbon);background:transparent;border-radius:999px;padding:3px 10px;font-size:13px;font-weight:600}
+.lnk:hover{background:var(--carbon);color:#fff}
+
+/* botones */
+.btn{background:var(--morado);color:#fff;border:0;border-radius:999px;padding:10px 18px;font-weight:700}
+.btn.sec{background:var(--blanco);color:var(--negro);border:1px solid var(--carbon)}
+.row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+
+/* duelos */
+.duelos{display:grid;gap:14px}
+.duelo{background:var(--blanco);border:1px solid var(--linea);border-radius:var(--r);padding:16px;display:grid;gap:12px;min-width:0}
+.duelo h3{font-size:20px;font-weight:800}
+.clave{font-weight:700;background:var(--tinte);border-radius:8px;padding:10px 12px;margin:0}
+.tw{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:14px;min-width:520px}
+th,td{text-align:left;vertical-align:top;padding:8px 10px;border-bottom:1px solid var(--linea)}
+thead th{font-family:var(--display);font-size:14px;background:var(--c);color:var(--ci)}
+tbody th{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--carbon);width:150px}
+
+/* quiz */
+.qbox{background:var(--blanco);border:1px solid var(--linea);border-radius:var(--r);padding:18px;display:grid;gap:14px;max-width:760px}
+.qmeta{display:flex;flex-wrap:wrap;gap:8px 16px;font-size:13px;font-weight:600;color:var(--carbon);font-variant-numeric:tabular-nums}
+.bar{height:6px;background:var(--tinte);border-radius:99px;overflow:hidden}.bar i{display:block;height:100%;background:var(--verde)}
+.frag{font-size:19px;font-weight:600;line-height:1.45;margin:0}
+.frag::before{content:"«";color:var(--morado);font-weight:800}.frag::after{content:"»";color:var(--morado);font-weight:800}
+.opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}
+.opt{text-align:left;background:var(--crema);border:2px solid var(--linea);border-radius:10px;padding:12px 14px;font-weight:700;display:grid;gap:2px}
+.opt small{font-weight:500;font-size:12px;color:var(--carbon)}
+.opt:hover:not([disabled]){border-color:var(--carbon)}
+.opt.ok{background:var(--ok);border-color:var(--verde)}
+.opt.mal{background:var(--mal);border-color:var(--coral)}
+.opt[disabled]{cursor:default}
+.fb{border-radius:10px;padding:12px 14px;display:grid;gap:6px;font-size:15px}
+.fb.ok{background:var(--ok)}.fb.mal{background:var(--mal)}
+.fb b.v{font-family:var(--display);font-size:16px}
+.fin{display:grid;gap:10px}
+.big{font-family:var(--display);font-weight:800;font-size:44px;line-height:1}
+
+/* relaciona */
+.rel{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:12px;max-width:900px}
+.rcol{display:grid;gap:8px;align-content:start}
+.ri{text-align:left;background:var(--blanco);border:2px solid var(--linea);border-radius:10px;padding:10px 12px;font-size:14.5px;display:flex;gap:10px;align-items:flex-start}
+.ri .n{flex:none;font-family:var(--display);font-weight:800;font-size:13px;min-width:24px;height:24px;border-radius:12px;display:grid;place-items:center;background:var(--tinte)}
+.ri.sel{border-color:var(--morado)}
+.ri.hecho{background:var(--ok);border-color:var(--verde);cursor:default}
+.ri.hecho .n{background:var(--verde)}
+.ri.err{animation:sh .35s;border-color:var(--coral)}
+.ri.act{font-weight:700}
+@keyframes sh{25%{transform:translateX(-4px)}75%{transform:translateX(4px)}}
+
+/* errores */
+.errs{display:grid;gap:8px;max-width:760px}
+.erow{background:var(--blanco);border:1px solid var(--linea);border-radius:10px;padding:10px 12px;display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:center}
+.erow .cnt{font-family:var(--display);font-weight:800;font-size:22px;min-width:40px;text-align:center;background:var(--mal);border-radius:8px;padding:4px 6px;font-variant-numeric:tabular-nums}
+.vacio{background:var(--blanco);border:1px dashed var(--carbon);border-radius:var(--r);padding:18px;max-width:760px}
+.nota{font-size:13px;color:var(--carbon);max-width:76ch;margin:0}
+
+@media (max-width:640px){ .rel{grid-template-columns:1fr} .frag{font-size:17px} }
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+
+<header class="top">
+  <div class="wrap">
+    <div class="marcas">360EDUCA · Módulo 1 · Certificación CNBV PLD/FT</div>
+    <h1>¿Quién hace <em>qué</em>?</h1>
+    <p class="lede">Organismos internacionales, el GAFI por dentro, las resoluciones de la ONU y las autoridades mexicanas. Primero estudia cada actor con su gancho; luego practica con frases literales y distractores del mismo tipo que los del examen.</p>
+  </div>
+</header>
+<div class="membrete" aria-hidden="true"></div>
+
+<nav class="tabs" aria-label="Secciones">
+  <div class="wrap" role="tablist">
+    <button class="tab" role="tab" id="t-est" data-p="est">1 · Estudiar</button>
+    <button class="tab" role="tab" id="t-due" data-p="due">2 · Duelos</button>
+    <button class="tab" role="tab" id="t-qui" data-p="qui">3 · ¿De quién es?</button>
+    <button class="tab" role="tab" id="t-rel" data-p="rel">4 · Relaciona</button>
+    <button class="tab" role="tab" id="t-err" data-p="err">5 · Mis errores</button>
+  </div>
+</nav>
+
+<main class="wrap">
+  <section class="panel" id="p-est" role="tabpanel" aria-labelledby="t-est">
+    <div class="head"><h2>Cada actor, con su gancho</h2>
+      <p>Lee la tarjeta de arriba abajo: quién se sienta a la mesa, el gancho para recordarlo, la definición literal y las palabras que lo delatan en una pregunta. Abre «Lo que hace» para ver cada función con su fundamento.</p></div>
+    <div class="fams" id="famsEst"></div>
+    <p class="famq" id="famqEst"></p>
+    <div class="grid" id="gridEst"></div>
+  </section>
+
+  <section class="panel" id="p-due" role="tabpanel" aria-labelledby="t-due" hidden>
+    <div class="head"><h2>Los pares que se confunden</h2>
+      <p>Los distractores del examen casi siempre salen de aquí. Lee la frase clave, compara fila por fila y practica sólo ese duelo.</p></div>
+    <div class="duelos" id="duelos"></div>
+  </section>
+
+  <section class="panel" id="p-qui" role="tabpanel" aria-labelledby="t-qui" hidden>
+    <div class="head"><h2>¿De quién es esta frase?</h2>
+      <p>Aparece una frase y eliges a quién le pertenece. Los distractores son siempre de la misma familia. Si fallas, la frase regresa unas preguntas después.</p></div>
+    <div class="fams" id="famsQui"></div>
+    <div class="row">
+      <span class="lbl">Ronda</span>
+      <button class="fam f-all" id="len10" aria-pressed="true">10</button>
+      <button class="fam f-all" id="len20" aria-pressed="false">20</button>
+      <button class="fam f-all" id="lenAll" aria-pressed="false">Todas</button>
+      <button class="btn" id="qStart">Empezar ronda</button>
+    </div>
+    <div id="qArea"></div>
+  </section>
+
+  <section class="panel" id="p-rel" role="tabpanel" aria-labelledby="t-rel" hidden>
+    <div class="head"><h2>Relaciona columnas</h2>
+      <p>Toca una frase y luego al actor que le corresponde. Cinco pares por ronda, como en tu actividad de relación.</p></div>
+    <div class="fams" id="famsRel"></div>
+    <div class="row"><button class="btn" id="rNew">Nueva ronda</button><span class="qmeta" id="rMeta"></span></div>
+    <div class="rel" id="rArea"></div>
+  </section>
+
+  <section class="panel" id="p-err" role="tabpanel" aria-labelledby="t-err" hidden>
+    <div class="head"><h2>Mis errores</h2>
+      <p>Se guardan sólo en este navegador. Practica primero lo que más fallas.</p></div>
+    <div class="row"><button class="btn" id="eQuiz">Practicar mis errores</button><button class="btn sec" id="eClear">Borrar historial</button></div>
+    <div id="eArea"></div>
+  </section>
+
+  <p class="nota">Fuentes: CNBV, «Organismos Internacionales» (gob.mx); Mandato del GAFI 2012-2020; Recomendaciones del GAFI y sus Notas Interpretativas (traducción dic-2025); RISHCP art. 10; Reglamento Interior de la CNBV (2022); ENR 2023; CPF. Lo marcado «Clase 360Educa» viene de materiales de clase y no está en la bibliografía del temario.</p>
+</main>
+
+<script type="application/json" id="datos">{"fam": [{"k": "org", "l": "Organismos internacionales", "t": "1.2.1", "q": "¿Quién se sienta a la mesa?"}, {"k": "gafi", "l": "El GAFI por dentro", "t": "1.2.2", "q": "¿Quién decide, conduce, aconseja y ejecuta?"}, {"k": "memb", "l": "Quién participa en el GAFI", "t": "1.2.2", "q": "¿Qué compromiso tiene cada quien?"}, {"k": "res", "l": "Resoluciones de la ONU", "t": "1.2.1 · R.6 y R.7", "q": "¿Quién arma la lista y de qué trata?"}, {"k": "mx", "l": "Autoridades mexicanas", "t": "1.3", "q": "¿Quién regula, supervisa, analiza y persigue?"}], "actores": [{"id": "onu", "f": "org", "n": "ONU", "nl": "Organización de las Naciones Unidas", "mesa": "Los Estados miembros", "g": "Paz y seguridad. Su Consejo de Seguridad arma las listas de congelamiento.", "d": "«Es un foro para que sus miembros puedan tomar medidas sobre los problemas que enfrenta la humanidad, como la paz y la seguridad, los derechos humanos, el desarme, el terrorismo y mucho más.»", "src": "CNBV, Organismos Internacionales", "cf": ["egm", "gafi"], "delata": ["paz y la seguridad", "derechos humanos", "desarme", "Consejo de Seguridad"], "ex": ["Observadora del GAFI (Mandato párr. 14).", "Sus resoluciones 1267 y 1373 sostienen la R.6; la 1718 y la 1737, la R.7.", "Clase 2018: seis órganos principales; el Consejo de Seguridad tiene 15 miembros, cada uno con un voto."]}, {"id": "bcbs", "f": "org", "n": "Basilea", "nl": "Comité de Supervisión Bancaria de Basilea", "mesa": "Los supervisores bancarios", "g": "Los supervisores. Regulación prudencial de los bancos.", "d": "«Es el principal organismo normativo internacional para la regulación prudencial de los bancos y constituye un foro de cooperación en materia de supervisión bancaria.»", "src": "CNBV, Organismos Internacionales", "cf": ["wolf", "egm"], "delata": ["regulación prudencial", "supervisión bancaria", "organismo normativo"], "ex": ["Figura en el Anexo C del Mandato del GAFI (observadores).", "Emitió el BCBS 275 (gestión de riesgos de BC/FT), que se estudia en el Área 3."]}, {"id": "wolf", "f": "org", "n": "Wolfsberg", "nl": "Grupo Wolfsberg", "mesa": "Los bancos mismos", "g": "Los bancos. Única definición que dice «corrupción».", "d": "«Es una asociación de bancos reunidos con la finalidad de desarrollar estándares para la lucha contra el financiamiento del terrorismo, la corrupción y el lavado de dinero en instituciones financieras.»", "src": "CNBV, Organismos Internacionales", "cf": ["bcbs", "egm"], "delata": ["asociación de bancos", "corrupción", "desarrollar estándares"], "ex": ["No aparece en el Mandato del GAFI.", "Clase 2018: se reunió por primera vez en 2000 en el castillo de Wolfsberg, Suiza; reúne a bancos globales (KYC, banca privada)."]}, {"id": "egm", "f": "org", "n": "Egmont", "nl": "Grupo Egmont", "mesa": "Las unidades de inteligencia financiera (UIF)", "g": "Las UIF. Su palabra es «vínculos de cooperación».", "d": "«Es un foro para que las unidades de inteligencia financiera alrededor del mundo mejoren sus vínculos de cooperación en la lucha contra el lavado de dinero y el financiamiento al terrorismo.»", "src": "CNBV, Organismos Internacionales", "cf": ["wolf", "bcbs", "onu"], "delata": ["unidades de inteligencia financiera", "vínculos de cooperación", "intercambio de información entre UIF"], "ex": ["Documentos: Declaración de Objetivos y Principios para el Intercambio de Información entre UIF (NI R.29 párr. 13).", "La UIF debe solicitar su membresía (NI R.29 párr. 13).", "Observador del GAFI (Mandato párr. 14).", "Clase 2018: se creó en 1995 en el Palacio de Egmont, Bruselas."]}, {"id": "gafi", "f": "org", "n": "GAFI", "nl": "Grupo de Acción Financiera Internacional", "mesa": "Ministerios y jurisdicciones Miembro", "g": "Fija estándares (las 40) y evalúa países. Termina en «y otras amenazas».", "d": "«Es una entidad intergubernamental cuyos objetivos son fijar estándares y promover la efectiva implementación de medidas legales, regulatorias y operativas para combatir el lavado de activos, el financiamiento del terrorismo y otras amenazas.»", "src": "CNBV, Organismos Internacionales", "cf": ["gafilat", "bcbs"], "delata": ["entidad intergubernamental", "fijar estándares", "efectiva implementación", "y otras amenazas"], "ex": ["Establecido en 1989 por los Ministerios y sus jurisdicciones Miembro (Mandato párr. 1). El texto histórico de la CNBV dice que lo creó el G-7.", "Evalúa a sus Miembros con «revisiones entre pares» («evaluaciones mutuas») (Mandato párr. 3 c).", "Su Secretaría está en la sede de la OCDE en París (párr. 46)."]}, {"id": "gafilat", "f": "org", "n": "GAFILAT", "nl": "Grupo de Acción Financiera de Latinoamérica", "mesa": "Los países de la región", "g": "Regional. Su definición sí nombra la proliferación.", "d": "«Es una organización intergubernamental regional para prevenir y combatir el lavado de activos, el financiamiento del terrorismo y el financiamiento de la proliferación de armas de destrucción masiva.»", "src": "CNBV, Organismos Internacionales", "cf": ["gafi"], "delata": ["regional", "prevenir y combatir", "proliferación de armas de destrucción masiva"], "ex": ["Es un organismo regional al estilo del GAFI (FSRB): Miembro Asociado del GAFI.", "Hizo la traducción al español de las Recomendaciones, con autorización del GAFI."]}, {"id": "pleno", "f": "gafi", "n": "Pleno", "nl": "El Pleno", "mesa": "Jurisdicciones Miembro y organizaciones", "g": "DECIDE. Máximo órgano de decisión, por consenso.", "d": "«El Pleno es el máximo órgano de decisión del GAFI. Sus decisiones se toman por consenso.»", "src": "Mandato 2012-2020, párr. 19", "cf": ["gd", "pres"], "delata": ["máximo órgano de decisión", "consenso", "aprueba", "designa"], "ex": ["Por lo menos tres Sesiones Plenarias al año, normalmente en febrero, junio y octubre; las convoca el Presidente (párr. 24).", "Sesiones abiertas: Miembros, Asociados y observadores. Cerradas: Miembros y Asociados (párr. 22)."]}, {"id": "pres", "f": "gafi", "n": "Presidente", "nl": "El Presidente", "mesa": "Uno de los Miembros, por un año", "g": "CONDUCE. Convoca, preside, supervisa a la Secretaría y es el portavoz.", "d": "«El Presidente convoca y preside las sesiones del Pleno y del Grupo Directivo. El Presidente supervisa a la Secretaría del GAFI.»", "src": "Mandato 2012-2020, párr. 32", "cf": ["vp", "secr", "gd"], "delata": ["convoca y preside", "principal portavoz", "1 de julio al 30 de junio"], "ex": ["Lo nombra el Pleno de entre sus Miembros por un año (párr. 31)."]}, {"id": "vp", "f": "gafi", "n": "Vicepresidente", "nl": "El Vicepresidente", "mesa": "El Presidente designado", "g": "El que sigue. Es el Presidente designado del año siguiente.", "d": "«El Vicepresidente es también el Presidente designado.»", "src": "Mandato 2012-2020, párr. 35", "cf": ["pres"], "delata": ["Presidente designado", "lo suple"], "ex": []}, {"id": "gd", "f": "gafi", "n": "Grupo Directivo", "nl": "El Grupo Directivo", "mesa": "Miembros con representación geográfica equilibrada", "g": "ACONSEJA. Órgano consultor; asesora entre plenarias.", "d": "«El Grupo Directivo del GAFI es un órgano consultor y es presidido por el Presidente.»", "src": "Mandato 2012-2020, párr. 37", "cf": ["pleno", "secr"], "delata": ["órgano consultor", "entre las Sesiones Plenarias", "guiar el progreso", "coordinación entre grupos de trabajo"], "ex": ["Por lo menos tres reuniones al año, convocadas por el Presidente (párr. 41). Mismo mínimo que el Pleno: ¡trampa!"]}, {"id": "secr", "f": "gafi", "n": "Secretaría", "nl": "La Secretaría", "mesa": "Secretario Ejecutivo y personal", "g": "EJECUTA. Administra recursos y registros por instrucciones del Presidente.", "d": "«El Secretario Ejecutivo y el personal de la Secretaría son responsables de actuar de acuerdo con las instrucciones del Presidente.»", "src": "Mandato 2012-2020, párr. 44", "cf": ["gd", "pres"], "delata": ["Secretario Ejecutivo", "administrar los recursos", "registros, páginas web y correspondencia", "OCDE, París"], "ex": []}, {"id": "jur", "f": "memb", "n": "Jurisdicciones Miembro", "nl": "Miembros: jurisdicciones", "mesa": "Países del Anexo A (México está ahí)", "g": "SE SOMETEN a las evaluaciones mutuas.", "d": "Se comprometen a respaldar e implementar las Recomendaciones y a someterse a las evaluaciones mutuas, que el GAFI publica.", "src": "Mandato 2012-2020, párr. 6", "cf": ["orgm", "asoc"], "delata": ["someterse", "Anexo A"], "ex": []}, {"id": "orgm", "f": "memb", "n": "Organizaciones Miembro", "nl": "Miembros: organizaciones", "mesa": "Organizaciones del Anexo A", "g": "APOYAN las evaluaciones mutuas; no se someten.", "d": "Se comprometen a respaldar y promover la implementación entre sus jurisdicciones y a apoyar de forma sistemática las evaluaciones mutuas.", "src": "Mandato 2012-2020, párr. 7", "cf": ["jur", "asoc"], "delata": ["apoyar de forma sistemática"], "ex": []}, {"id": "asoc", "f": "memb", "n": "Miembros Asociados", "nl": "Miembros Asociados (FSRB)", "mesa": "Organismos regionales tipo GAFI, como GAFILAT", "g": "LOS REGIONALES. Evalúan a sus propios países y publican.", "d": "«Los Miembros Asociados son organismos regionales tipo GAFI (FSRBs), designados por el GAFI, que participan en la labor del GAFI.»", "src": "Mandato 2012-2020, párr. 9", "cf": ["obs", "jur"], "delata": ["FSRB", "organismos regionales tipo GAFI"], "ex": ["Si un organismo califica como FSRB lo decide el Pleno (párr. 11)."]}, {"id": "fmibm", "f": "memb", "n": "FMI y Banco Mundial", "nl": "Instituciones financieras internacionales", "mesa": "FMI y Banco Mundial", "g": "PAPEL ESPECIAL. Estabilidad y desarrollo; evalúan en el Programa del Sector Financiero.", "d": "Tienen un «papel especial» en el GAFI por sus mandatos de promover la estabilidad y el desarrollo financiero y económico.", "src": "Mandato 2012-2020, párr. 13", "cf": ["obs", "asoc"], "delata": ["papel especial", "Programa de Evaluación del Sector Financiero", "estabilidad y el desarrollo"], "ex": ["Además figuran en el Anexo C, entre los observadores; lo que los distingue es su «papel especial» (párr. 13)."], "nx": ["obs"]}, {"id": "obs", "f": "memb", "n": "Observadores", "nl": "Observadores", "mesa": "ONU, Egmont, Basilea, FMI, Banco Mundial y otros (Anexo C)", "g": "MIRAN Y CONTRIBUYEN. Van a las sesiones abiertas, no a las cerradas.", "d": "Organismos que trabajan en estrecha colaboración con el GAFI; por ejemplo, las Naciones Unidas y el Grupo Egmont participan como observadores.", "src": "Mandato 2012-2020, párrs. 14 y 22", "cf": ["asoc", "jur"], "delata": ["observadores", "Anexo C", "sesiones abiertas"], "ex": ["Su elegibilidad la revisa periódicamente el Pleno (párr. 15)."], "nx": ["fmibm"]}, {"id": "r1267", "f": "res", "n": "1267", "nl": "Resolución 1267 (1999)", "mesa": "Designa el Consejo de Seguridad", "g": "LISTA DEL MUNDO. La arma la ONU. Año 99.", "d": "R.6 (i): persona o entidad designada por, o bajo la autoridad de, el Consejo de Seguridad dentro del Capítulo VII, incluyendo la 1267 (1999) y sus resoluciones sucesoras.", "src": "R.6 y NI R.6", "cf": ["r1373", "r1988"], "delata": ["Consejo de Seguridad", "Capítulo VII", "Al-Qaida", "Comité 1267"], "ex": ["Hoy el Comité 1267 designa lo relativo a Al-Qaida; el Talibán es del Comité 1988 (NI R.6 párr. 3).", "Ojo: el PPT de clase de 2018 la describe contra los talibanes, que es como nació en 1999."]}, {"id": "r1988", "f": "res", "n": "1988", "nl": "Comité 1988", "mesa": "Designa el Consejo de Seguridad (Comité 1988)", "g": "TALIBÁN y Afganistán.", "d": "Las designaciones relativas al Talibán y a las amenazas a la paz, la estabilidad y la seguridad de Afganistán las hace el Comité 1988.", "src": "NI R.6 párr. 3", "cf": ["r1267"], "delata": ["Talibán", "Afganistán"], "ex": []}, {"id": "r1373", "f": "res", "n": "1373", "nl": "Resolución 1373 (2001)", "mesa": "Designa el propio país", "g": "LISTA DE CASA. La arma el país. Año 01.", "d": "R.6 (ii): persona o entidad designada por ese país en virtud de la resolución 1373 (2001).", "src": "R.6 y NI R.6", "cf": ["r1267"], "delata": ["el propio país", "nacional o supranacional", "motivos razonables", "a petición de otro país"], "ex": ["Las designaciones no dependen de que exista un proceso penal (NI R.6 párr. 4 d).", "Texto de la resolución (actividad 360Educa): «Decide que todos los Estados prevengan y repriman la financiación de todo acto de terrorismo»."]}, {"id": "r1718", "f": "res", "n": "1718", "nl": "Resolución 1718 (2006)", "mesa": "Designa el Consejo de Seguridad (Comité 1718)", "g": "COREA DEL NORTE (RPDC). 2006. R.7.", "d": "Base de sanciones financieras dirigidas de la R.7 relativas a la RPDC: programas nucleares, otros de armas de destrucción masiva y de misiles balísticos.", "src": "NI R.7 párrs. 5 y 13; nota 22", "cf": ["r1737", "r1540"], "delata": ["RPDC", "misiles balísticos"], "ex": []}, {"id": "r1737", "f": "res", "n": "1737", "nl": "Resolución 1737 (2006)", "mesa": "Designa el Consejo de Seguridad (Comité 1737)", "g": "IRÁN. 2006. R.7. Sucesoras 1747, 1803 y 1929.", "d": "Base de sanciones financieras dirigidas de la R.7 relativas a Irán: actividades sensibles de proliferación nuclear o sistemas vectores.", "src": "NI R.7 párrs. 5 y 13; nota 22", "cf": ["r1718", "r2231"], "delata": ["Irán", "sistemas vectores", "1747, 1803 y 1929"], "ex": []}, {"id": "r1540", "f": "res", "n": "1540", "nl": "Resolución 1540 (2004)", "mesa": "(No designa personas)", "g": "APARTE de la R.7. No proliferación general.", "d": "Sus obligaciones de no proliferación existen con independencia de la R.7 y su Nota Interpretativa.", "src": "NI R.7 párr. 2 y nota 23", "cf": ["r1718", "r1737"], "delata": ["con independencia de la R.7", "2235 (2016)", "TNP"], "ex": []}, {"id": "r1452", "f": "res", "n": "1452", "nl": "Resolución 1452 (2002)", "mesa": "—", "g": "GASTOS BÁSICOS de designados por la ONU.", "d": "Conforme a la 1452 (2002) y sucesoras se autoriza el acceso a fondos congelados para gastos básicos, honorarios o gastos extraordinarios de designados por el Consejo de Seguridad.", "src": "NI R.6 párr. 10", "cf": ["r1963", "r1904"], "delata": ["gastos básicos"], "ex": []}, {"id": "r1963", "f": "res", "n": "1963", "nl": "Resolución 1963 (2010)", "mesa": "—", "g": "GASTOS BÁSICOS de designados por el país (1373).", "d": "Es la referencia para el acceso a fondos congelados cuando la designación es nacional, en virtud de la 1373.", "src": "NI R.6 párr. 10", "cf": ["r1452"], "delata": ["designación nacional"], "ex": []}, {"id": "r1904", "f": "res", "n": "1904", "nl": "Resolución 1904 (2009)", "mesa": "—", "g": "DEFENSA DEL PUEBLO. Para salir de la lista de Al-Qaida.", "d": "En virtud de la 1904 (2009), la Oficina de las Naciones Unidas de Defensa del Pueblo acepta peticiones de remoción de la Lista de Sanciones a Al-Qaida.", "src": "NI R.6 párr. 11", "cf": ["r1452", "r1267"], "delata": ["Defensa del Pueblo", "remoción"], "ex": []}, {"id": "r2231", "f": "res", "n": "2231", "nl": "Resolución 2231 (2015)", "mesa": "—", "g": "SÓLO EXENCIONES (párr. 9 de la NI R.7). Ya no es la base de Irán.", "d": "En la NI R.7 (dic-2025) sólo aparece en el párr. 9, en las condiciones de exención para autorizar el acceso a fondos.", "src": "NI R.7 párr. 9; nota 22", "cf": ["r1737"], "delata": ["exención"], "ex": []}, {"id": "shcp", "f": "mx", "n": "SHCP", "nl": "Secretaría de Hacienda (sus unidades)", "mesa": "UBVA, UBD, USPSS y UIF", "g": "EMITE las DCG. Es la reguladora.", "d": "El régimen en las leyes financieras le otorga la atribución de emitir disposiciones de carácter general en la materia, por medio de sus unidades administrativas competentes.", "src": "ENR 2023, apartado III", "cf": ["uif", "cnbv"], "delata": ["emitir DCG", "reguladora", "víctima u ofendida"], "ex": ["Para la acción penal por lavado con servicios del sistema financiero se requiere su denuncia; tiene el carácter de víctima u ofendida (CPF art. 400 Bis)."]}, {"id": "uif", "f": "mx", "n": "UIF", "nl": "Unidad de Inteligencia Financiera (RISHCP art. 10)", "mesa": "Unidad de la SHCP", "g": "RECIBE, ANALIZA, DENUNCIA. Integra la lista y emite la ENR. Propone, no emite DCG.", "d": "Autoridad central del régimen: recibe reportes y avisos, analiza, disemina inteligencia, envía informes y, en su caso, presenta denuncias.", "src": "ENR 2023, III.4; RISHCP art. 10", "cf": ["cnbv", "shcp", "fgr"], "delata": ["coordinar la recepción y análisis", "denunciar ante el Ministerio Público", "integrar la lista de personas bloqueadas", "Evaluación Nacional de Riesgos"], "ex": ["El art. 10 del RISHCP tiene 45 fracciones.", "Clase 2018: tipos de UIF en el mundo: administrativa, policial, judicial o híbrida."]}, {"id": "cnbv", "f": "mx", "n": "CNBV", "nl": "CNBV · DG de Prevención de Operaciones con Recursos de Procedencia Ilícita A, B y C", "mesa": "Órgano desconcentrado de la SHCP", "g": "SUPERVISA y VISITA. Certifica y envía la lista.", "d": "Supervisa que las entidades de su competencia cumplan con PLD/FT por medio de vigilancia e inspección; sus DG PLD A, B y C verifican el cumplimiento (RI CNBV art. 48).", "src": "ENR 2023, III.3; RI CNBV art. 48", "cf": ["uif", "dgds", "sat"], "delata": ["verificar el cumplimiento", "visitas ordinarias, especiales y de investigación", "certificar", "enviar la lista"], "ex": []}, {"id": "dgds", "f": "mx", "n": "DG Delitos y Sanciones", "nl": "CNBV · DG de Delitos y Sanciones", "mesa": "Unidad de la CNBV", "g": "SANCIONA, cuando la Junta de Gobierno se lo delega.", "d": "Otorga audiencia a los presuntos infractores e impone las sanciones administrativas cuando le hayan sido delegadas por la Junta de Gobierno.", "src": "RI CNBV art. 41, fr. XI", "cf": ["cnbv"], "delata": ["audiencia", "imponer sanciones"], "ex": []}, {"id": "sat", "f": "mx", "n": "SAT", "nl": "Servicio de Administración Tributaria", "mesa": "Supervisor de actividades vulnerables", "g": "SUPERVISA ACTIVIDADES VULNERABLES (LFPIORPI).", "d": "Supervisa a quienes realizan Actividades Vulnerables conforme a la LFPIORPI: extra situ a riesgo bajo–medio y visitas in situ a los de mayor riesgo.", "src": "ENR 2023, factor 12", "cf": ["cnbv", "cnsfc"], "delata": ["actividades vulnerables", "extra situ"], "ex": []}, {"id": "cnsfc", "f": "mx", "n": "CNSF y CONSAR", "nl": "CNSF y CONSAR", "mesa": "Supervisores del sistema financiero", "g": "LAS OTRAS DOS SUPERVISORAS del sistema financiero.", "d": "Con la CNBV, son las autoridades supervisoras de las entidades financieras sobre las que tienen competencia.", "src": "ENR 2023, III.3 y factor 12", "cf": ["cnbv", "sat"], "delata": ["seguros y fianzas", "ahorro para el retiro"], "ex": []}, {"id": "banxico", "f": "mx", "n": "Banxico", "nl": "Banco de México", "mesa": "Regulador y supervisor de pagos", "g": "DOBLE PAPEL: regula y supervisa riesgos de sistemas de pagos.", "d": "Forma parte de las autoridades reguladoras y también supervisa las obligaciones de los Riesgos Adicionales en lo que se refiere a sistemas de pagos.", "src": "ENR 2023, III.2 y III.3", "cf": ["shcp", "cnbv"], "delata": ["sistemas de pagos", "riesgos adicionales"], "ex": []}, {"id": "so", "f": "mx", "n": "Sujetos obligados", "nl": "Sujetos obligados", "mesa": "Sistema financiero y actividades vulnerables", "g": "PRIMER FRENTE. Conocen al cliente y reportan.", "d": "Identifican y conocen a los clientes, monitorean las operaciones, detectan operaciones de riesgo y envían reportes y avisos a la UIF.", "src": "ENR 2023, III.1", "cf": ["uif"], "delata": ["identificar y conocer a los clientes", "enviar reportes"], "ex": []}, {"id": "fgr", "f": "mx", "n": "FGR", "nl": "Fiscalía General de la República", "mesa": "Procuración de justicia", "g": "INVESTIGA Y PERSIGUE. En el diagrama de la CNBV de 2019 todavía aparece como PGR.", "d": "Investiga y persigue los delitos del orden federal y estatal (con las fiscalías estatales), incluyendo el LD/FT.", "src": "ENR 2023, III.5", "cf": ["uif", "pj"], "delata": ["investigar y perseguir", "decomiso"], "ex": []}, {"id": "pj", "f": "mx", "n": "Poder Judicial", "nl": "Poder Judicial", "mesa": "Federal y estatales", "g": "JUZGA.", "d": "Imparte justicia con apego al marco jurídico de la nación, incluidos los casos de LD/FT.", "src": "ENR 2023, III.5", "cf": ["fgr"], "delata": ["impartición de justicia"], "ex": []}, {"id": "sre", "f": "mx", "n": "SRE", "nl": "Secretaría de Relaciones Exteriores", "mesa": "Autoridad de apoyo", "g": "ASISTENCIA LEGAL MUTUA con el extranjero.", "d": "Coordina la Asistencia Legal Mutua con autoridades extranjeras.", "src": "ENR 2023, III.5", "cf": ["uif"], "delata": ["Asistencia Legal Mutua"], "ex": []}], "hechos": [{"t": "Es un foro para que sus miembros puedan tomar medidas sobre los problemas que enfrenta la humanidad, como la paz y la seguridad…", "a": "onu", "r": "CNBV", "c": false}, {"t": "…los derechos humanos, el desarme, el terrorismo y mucho más.", "a": "onu", "r": "CNBV", "c": false}, {"t": "Su Consejo de Seguridad emite las resoluciones que exigen congelar sin demora (base de la R.6 y la R.7).", "a": "onu", "r": "R.6 y R.7", "c": false}, {"t": "Es el principal organismo normativo internacional para la regulación prudencial de los bancos…", "a": "bcbs", "r": "CNBV", "c": false}, {"t": "…y constituye un foro de cooperación en materia de supervisión bancaria.", "a": "bcbs", "r": "CNBV", "c": false}, {"t": "Emitió el documento 275 sobre la adecuada gestión de los riesgos de blanqueo de capitales y financiación del terrorismo.", "a": "bcbs", "r": "Temario Área 3", "c": false}, {"t": "Es una asociación de bancos reunidos con la finalidad de desarrollar estándares…", "a": "wolf", "r": "CNBV", "c": false}, {"t": "…para la lucha contra el financiamiento del terrorismo, la corrupción y el lavado de dinero en instituciones financieras.", "a": "wolf", "r": "CNBV", "c": false}, {"t": "De las seis definiciones de la CNBV, es la única que menciona la corrupción.", "a": "wolf", "r": "CNBV", "c": false}, {"t": "Se reunió por primera vez en el año 2000 en un castillo de Suiza para elaborar directrices antilavado para la banca privada.", "a": "wolf", "r": "Clase 2018", "c": true}, {"t": "Es un foro para que las unidades de inteligencia financiera alrededor del mundo mejoren sus vínculos de cooperación…", "a": "egm", "r": "CNBV", "c": false}, {"t": "La UIF de cada país debe solicitar su membresía.", "a": "egm", "r": "NI R.29 párr. 13", "c": false}, {"t": "Emite la Declaración de Objetivos y los Principios para el Intercambio de Información entre las UIF.", "a": "egm", "r": "NI R.29 párr. 13", "c": false}, {"t": "Se creó en 1995, en una reunión en un palacio de Bruselas, Bélgica.", "a": "egm", "r": "Clase 2018", "c": true}, {"t": "Es una entidad intergubernamental cuyos objetivos son fijar estándares y promover la efectiva implementación de medidas legales, regulatorias y operativas…", "a": "gafi", "r": "CNBV", "c": false}, {"t": "…para combatir el lavado de activos, el financiamiento del terrorismo y otras amenazas.", "a": "gafi", "r": "CNBV", "c": false}, {"t": "Fue establecido en 1989 por los Ministerios y sus jurisdicciones Miembro.", "a": "gafi", "r": "Mandato párr. 1", "c": false}, {"t": "Su Mandato 2012-2020 (párr. 3 c) le encarga evaluar y supervisar a sus Miembros mediante «revisiones entre pares» («evaluaciones mutuas»).", "a": "gafi", "r": "Mandato párr. 3 c)", "c": false}, {"t": "Es una organización intergubernamental regional para prevenir y combatir el lavado de activos…", "a": "gafilat", "r": "CNBV", "c": false}, {"t": "Su definición de la CNBV termina en «el financiamiento de la proliferación de armas de destrucción masiva».", "a": "gafilat", "r": "CNBV", "c": false}, {"t": "Realizó la traducción al español de las Recomendaciones del GAFI, con autorización del GAFI.", "a": "gafilat", "r": "Recomendaciones dic-2025", "c": false}, {"t": "Es el máximo órgano de decisión del GAFI.", "a": "pleno", "r": "Mandato párr. 19", "c": false}, {"t": "Sus decisiones se toman por consenso.", "a": "pleno", "r": "Mandato párr. 19", "c": false}, {"t": "Designa al Presidente, al Vicepresidente y al Grupo Directivo.", "a": "pleno", "r": "Mandato párr. 20", "c": false}, {"t": "Aprueba el programa de trabajo y el presupuesto.", "a": "pleno", "r": "Mandato párr. 20", "c": false}, {"t": "Aprueba estándares, guías e informes elaborados por el GAFI.", "a": "pleno", "r": "Mandato párr. 20 d)", "c": false}, {"t": "Decide sobre la membresía, el estatus de los organismos regionales tipo GAFI y la condición de observador.", "a": "pleno", "r": "Mandato párr. 20", "c": false}, {"t": "Nombra al Secretario Ejecutivo, a propuesta del Presidente.", "a": "pleno", "r": "Mandato párr. 43", "c": false}, {"t": "Selecciona y designa a los presidentes de los grupos de trabajo, a recomendación del Presidente.", "a": "pleno", "r": "Mandato párr. 27", "c": false}, {"t": "Consta de jurisdicciones Miembro y organizaciones.", "a": "pleno", "r": "Mandato párr. 18", "c": false}, {"t": "Convoca y preside las sesiones del Pleno y del Grupo Directivo.", "a": "pres", "r": "Mandato párr. 32", "c": false}, {"t": "Supervisa a la Secretaría del GAFI.", "a": "pres", "r": "Mandato párr. 32", "c": false}, {"t": "Es el principal portavoz e informa a los Ministerios y al público mediante el informe anual.", "a": "pres", "r": "Mandato párr. 33", "c": false}, {"t": "Su periodo es de un año: del 1 de julio al 30 de junio del año siguiente.", "a": "pres", "r": "Mandato párr. 31", "c": false}, {"t": "Puede extender invitaciones ad hoc a jurisdicciones no Miembro para asistir a las Sesiones Plenarias.", "a": "pres", "r": "Mandato párr. 23", "c": false}, {"t": "Propone al Pleno la composición del Grupo Directivo y al Secretario Ejecutivo.", "a": "pres", "r": "Mandato párrs. 38 y 43", "c": false}, {"t": "Debe su trabajo completamente al GAFI y a ninguna otra autoridad.", "a": "pres", "r": "Mandato párr. 34", "c": false}, {"t": "Es también el Presidente designado.", "a": "vp", "r": "Mandato párr. 35", "c": false}, {"t": "Lo nombra el Pleno por el año que precede a su periodo presidencial.", "a": "vp", "r": "Mandato párr. 35", "c": false}, {"t": "Apoya al Presidente y lo suple cuando sea necesario.", "a": "vp", "r": "Mandato párr. 36", "c": false}, {"t": "Es un órgano consultor.", "a": "gd", "r": "Mandato párr. 37", "c": false}, {"t": "Proporciona asesoría entre las Sesiones Plenarias para apoyar al Presidente.", "a": "gd", "r": "Mandato párr. 40", "c": false}, {"t": "Supervisa y guía el progreso de la labor del GAFI.", "a": "gd", "r": "Mandato párr. 42", "c": false}, {"t": "Promueve la coordinación entre los grupos de trabajo.", "a": "gd", "r": "Mandato párr. 42", "c": false}, {"t": "Su composición la decide el Pleno con representación geográfica equilibrada y se revisa cada año.", "a": "gd", "r": "Mandato párrs. 38-39", "c": false}, {"t": "Actúa de acuerdo con las instrucciones del Presidente.", "a": "secr", "r": "Mandato párr. 44", "c": false}, {"t": "Administra los recursos financieros, materiales y humanos asignados al GAFI.", "a": "secr", "r": "Mandato párr. 45", "c": false}, {"t": "Mantiene los registros, las páginas web y la correspondencia del GAFI.", "a": "secr", "r": "Mandato párr. 45", "c": false}, {"t": "Su servicio lo proporciona la OCDE, en su sede de París.", "a": "secr", "r": "Mandato párr. 46", "c": false}, {"t": "Apoya las actividades del GAFI y de sus grupos de trabajo y facilita la cooperación entre Miembros, Asociados y observadores.", "a": "secr", "r": "Mandato párr. 45", "c": false}, {"t": "Se comprometen a someterse a las evaluaciones mutuas, que el GAFI publicará.", "a": "jur", "r": "Mandato párr. 6 b)", "c": false}, {"t": "México figura en esta categoría, en el Anexo A del Mandato.", "a": "jur", "r": "Mandato Anexo A", "c": false}, {"t": "Se comprometen a apoyar de forma sistemática las evaluaciones mutuas (someterse a ellas es compromiso de las jurisdicciones).", "a": "orgm", "r": "Mandato párr. 7 b)", "c": false}, {"t": "Son organismos regionales tipo GAFI, designados por el GAFI.", "a": "asoc", "r": "Mandato párr. 9", "c": false}, {"t": "Realizan sistemáticamente «revisiones entre pares» en sus jurisdicciones miembro y publican los resultados.", "a": "asoc", "r": "Mandato párr. 12 b)", "c": false}, {"t": "El GAFILAT (en el Anexo B de 2012, GAFISUD) pertenece a esta categoría.", "a": "asoc", "r": "Mandato Anexo B (como GAFISUD); Recomendaciones dic-2025", "c": false}, {"t": "Tienen un «papel especial» por sus mandatos de promover la estabilidad y el desarrollo financiero y económico.", "a": "fmibm", "r": "Mandato párr. 13", "c": false}, {"t": "Evalúan países con la metodología acordada en el Programa de Evaluación del Sector Financiero.", "a": "fmibm", "r": "Mandato párr. 13 b)", "c": false}, {"t": "Las Naciones Unidas y el Grupo Egmont son el ejemplo que da el Mandato.", "a": "obs", "r": "Mandato párr. 14", "c": false}, {"t": "Pueden asistir a las sesiones abiertas del Pleno; a las cerradas sólo tienen derecho los Miembros y los Miembros Asociados.", "a": "obs", "r": "Mandato párr. 22", "c": false}, {"t": "El Pleno revisa periódicamente su elegibilidad.", "a": "obs", "r": "Mandato párr. 15", "c": false}, {"t": "Es de 1999: con ella y sus sucesoras designa el Consejo de Seguridad, dentro del Capítulo VII, la lista del inciso (i) de la R.6.", "a": "r1267", "r": "R.6 (i)", "c": false}, {"t": "Su comité hace las designaciones relativas a Al-Qaida.", "a": "r1267", "r": "NI R.6 párr. 3", "c": false}, {"t": "Para la Lista de Al-Qaida, el país no designa: sólo puede proponer nombres al comité de esta resolución.", "a": "r1267", "r": "NI R.6 párrs. 3 y 4 a)", "c": false}, {"t": "Es de 1999 y es la base del inciso (i) de la R.6.", "a": "r1267", "r": "R.6 (i)", "c": false}, {"t": "Su comité hace las designaciones relativas al Talibán y a las amenazas a Afganistán.", "a": "r1988", "r": "NI R.6 párr. 3", "c": false}, {"t": "Designa el propio país, a nivel nacional o supranacional.", "a": "r1373", "r": "R.6 (ii); NI R.6 párr. 3", "c": false}, {"t": "El país designa por iniciativa propia o a petición de otro país.", "a": "r1373", "r": "NI R.6 párr. 3", "c": false}, {"t": "Norma probatoria de «motivos razonables» o «base razonable», sin depender de un proceso penal.", "a": "r1373", "r": "NI R.6 párr. 4 d)", "c": false}, {"t": "Es de 2001 y es la base del inciso (ii) de la R.6.", "a": "r1373", "r": "R.6 (ii)", "c": false}, {"t": "Para deslistar, el país debe tener procedimientos propios y revisión ante un tribunal u otra autoridad independiente.", "a": "r1373", "r": "NI R.6 párr. 8", "c": false}, {"t": "Decide que todos los Estados prevengan y repriman la financiación de todo acto de terrorismo.", "a": "r1373", "r": "Texto de la Res. 1373 (actividad 360Educa)", "c": true}, {"t": "Que se congelen sin dilación los fondos y demás activos financieros de las personas que cometan, o intenten cometer, actos de terrorismo.", "a": "r1373", "r": "Texto de la Res. 1373 (actividad 360Educa)", "c": true}, {"t": "Que los Estados se abstengan de proporcionar todo tipo de apoyo, activo o pasivo, a quienes participen en actos de terrorismo.", "a": "r1373", "r": "Texto de la Res. 1373 (actividad 360Educa)", "c": true}, {"t": "Que los Estados adviertan cuanto antes a otros Estados mediante el intercambio de información.", "a": "r1373", "r": "Texto de la Res. 1373 (actividad 360Educa)", "c": true}, {"t": "Proliferación: programas nucleares, otros de armas de destrucción masiva y de misiles balísticos de la RPDC.", "a": "r1718", "r": "NI R.7 párr. 13 a)", "c": false}, {"t": "Proliferación: Irán, actividades sensibles de proliferación nuclear o sistemas vectores.", "a": "r1737", "r": "NI R.7 párr. 13 b)", "c": false}, {"t": "La nota 22 de la NI R.7 la enlista junto con la 1747, la 1803 y la 1929.", "a": "r1737", "r": "NI R.7 nota 22", "c": false}, {"t": "Su comité recibe aviso diez días laborables antes de autorizar ciertos pagos por contratos previos.", "a": "r1737", "r": "NI R.7 párr. 11", "c": false}, {"t": "De 2004; sus obligaciones de no proliferación existen con independencia de la R.7.", "a": "r1540", "r": "NI R.7 nota 23", "c": false}, {"t": "Aparece junto con la 2235 (2016), el TNP y los convenios sobre armas biológicas y químicas.", "a": "r1540", "r": "NI R.7 nota 23", "c": false}, {"t": "En terrorismo (NI R.6 párr. 10), es la base para autorizar acceso a fondos congelados para gastos básicos de designados por el Consejo de Seguridad o sus comités.", "a": "r1452", "r": "NI R.6 párr. 10", "c": false}, {"t": "Referencia para el acceso a fondos congelados cuando la designación es nacional, en virtud de la 1373.", "a": "r1963", "r": "NI R.6 párr. 10", "c": false}, {"t": "La Oficina de las Naciones Unidas de Defensa del Pueblo acepta peticiones de remoción de la Lista de Al-Qaida.", "a": "r1904", "r": "NI R.6 párr. 11", "c": false}, {"t": "En la NI R.7 de dic-2025 sólo aparece en el párr. 9, en las exenciones; ya no es la base de Irán.", "a": "r2231", "r": "NI R.7 párr. 9", "c": false}, {"t": "Proponer y emitir opinión sobre los proyectos de DCG que deba emitir la Secretaría.", "a": "uif", "r": "RISHCP art. 10, fr. I", "c": false}, {"t": "Proponer las reglas de carácter general de la LFPIORPI e interpretar esa ley para efectos administrativos.", "a": "uif", "r": "RISHCP art. 10, frs. II y III", "c": false}, {"t": "Determinar y expedir las formas oficiales para la presentación de reportes.", "a": "uif", "r": "RISHCP art. 10, fr. VI", "c": false}, {"t": "Participar con los órganos desconcentrados en la revisión y verificación del cumplimiento.", "a": "uif", "r": "RISHCP art. 10, fr. VII", "c": false}, {"t": "Coordinar la recepción y análisis de la información de los reportes y avisos.", "a": "uif", "r": "RISHCP art. 10, fr. VIII", "c": false}, {"t": "Requerir y recabar información tanto de los sujetos obligados del sistema financiero como de quienes realicen actividades vulnerables, entidades colegiadas y órganos concentradores.", "a": "uif", "r": "RISHCP art. 10, fr. IX", "c": false}, {"t": "Coadyuvar, en representación de la Secretaría, en los procesos penales relativos a las conductas que denuncia.", "a": "uif", "r": "RISHCP art. 10, fr. XVI", "c": false}, {"t": "Denunciar ante el Ministerio Público de la Federación conductas de terrorismo, su financiamiento u ORPI.", "a": "uif", "r": "RISHCP art. 10, fr. XV", "c": false}, {"t": "Coordinar el seguimiento de sus denuncias hasta la resolución que no admita medio de defensa.", "a": "uif", "r": "RISHCP art. 10, fr. XVII", "c": false}, {"t": "Hacer del conocimiento de los órganos desconcentrados el incumplimiento o cumplimiento extemporáneo.", "a": "uif", "r": "RISHCP art. 10, fr. XXI", "c": false}, {"t": "Fungir como enlace con organismos internacionales e intergubernamentales.", "a": "uif", "r": "RISHCP art. 10, fr. XXIII", "c": false}, {"t": "Aprobar tipologías, tendencias e indicadores, y guías para elaborar los reportes.", "a": "uif", "r": "RISHCP art. 10, fr. XXIV", "c": false}, {"t": "Integrar la lista de personas bloqueadas, incluida la introducción y eliminación de personas.", "a": "uif", "r": "RISHCP art. 10, fr. XXXIV", "c": false}, {"t": "Emitir y mantener actualizada la Evaluación Nacional de Riesgos.", "a": "uif", "r": "RISHCP art. 10, fr. XXXVI", "c": false}, {"t": "Celebrar acuerdos reparatorios.", "a": "uif", "r": "RISHCP art. 10, fr. XVIII", "c": false}, {"t": "Es la autoridad central del régimen de PLD/CFT.", "a": "uif", "r": "ENR 2023, II.2 d)", "c": false}, {"t": "Verificar el cumplimiento PLD/FT de las Entidades, centros cambiarios, transmisores de dinero y SOFOM no reguladas sujetas a su supervisión.", "a": "cnbv", "r": "RI CNBV art. 48, fr. I", "c": false}, {"t": "Practicar visitas ordinarias, especiales y de investigación a centros cambiarios, transmisores de dinero y demás entidades que supervisa.", "a": "cnbv", "r": "RI CNBV art. 48, fr. II", "c": false}, {"t": "Como órgano desconcentrado, emite opinión a la SHCP sobre las DCG que ésta expida en PLD/FT (sin proponerlas).", "a": "cnbv", "r": "RI CNBV art. 48, fr. III", "c": false}, {"t": "Emitir lineamientos, mejores prácticas, criterios y guías para que sus supervisadas cumplan las DCG, sin perjuicio de la competencia de la SHCP para emitirlas.", "a": "cnbv", "r": "RI CNBV art. 48, fr. VI", "c": false}, {"t": "Certificar a auditores externos independientes, oficiales de cumplimiento y demás profesionales.", "a": "cnbv", "r": "RI CNBV art. 48, fr. X", "c": false}, {"t": "Enviar a sus supervisadas la lista de personas bloqueadas que recibe de la SHCP.", "a": "cnbv", "r": "RI CNBV art. 48, fr. XVIII", "c": false}, {"t": "Llevar el Registro Público de Centros cambiarios y Transmisores de dinero.", "a": "cnbv", "r": "RI CNBV art. 48, párrafo que sigue a la fr. XIX (sólo DG C)", "c": false}, {"t": "Atender, como supervisora, las consultas sobre la aplicación de las disposiciones de prevención, detección y reporte de operaciones de los arts. 139 Quáter o 400 Bis del CPF.", "a": "cnbv", "r": "RI CNBV art. 48, fr. V", "c": false}, {"t": "Otorgar audiencia a los presuntos infractores e imponer sanciones administrativas, cuando se lo delegue la Junta de Gobierno.", "a": "dgds", "r": "RI CNBV art. 41, fr. XI", "c": false}, {"t": "Emite las disposiciones de carácter general en materia de PLD/FT, por medio de sus unidades administrativas.", "a": "shcp", "r": "ENR 2023, III", "c": false}, {"t": "Según el CPF (art. 400 Bis), tiene el carácter de víctima u ofendida, y sin su denuncia no se ejerce la acción penal por lavado con servicios del sistema financiero.", "a": "shcp", "r": "CPF art. 400 Bis", "c": false}, {"t": "Supervisa a quienes realizan actividades vulnerables conforme a la LFPIORPI.", "a": "sat", "r": "ENR 2023, factor 12", "c": false}, {"t": "Supervisión extra situ a riesgo bajo–medio y visitas in situ a los de mayor riesgo, según su matriz.", "a": "sat", "r": "ENR 2023, factor 12", "c": false}, {"t": "Junto con la CNBV, son autoridades supervisoras de las entidades financieras de su competencia.", "a": "cnsfc", "r": "ENR 2023, III.3", "c": false}, {"t": "Es reguladora y además supervisa los riesgos adicionales en lo que se refiere a sistemas de pagos.", "a": "banxico", "r": "ENR 2023, III.2 y III.3", "c": false}, {"t": "Identificar y conocer a los clientes, monitorear operaciones, detectar las de riesgo y enviar reportes y avisos a la UIF.", "a": "so", "r": "ENR 2023, III.1", "c": false}, {"t": "Investigar y perseguir los delitos del orden federal, incluyendo el LD/FT.", "a": "fgr", "r": "ENR 2023, III.5", "c": false}, {"t": "En el diagrama de la CNBV de 2019 aparece como Procuraduría: sentencias condenatorias y decomiso de bienes.", "a": "fgr", "r": "VSPP 2019, p. 2", "c": false}, {"t": "Impartir justicia con apego al marco jurídico, incluidos los casos de LD/FT.", "a": "pj", "r": "ENR 2023, III.5", "c": false}, {"t": "Coordinar la Asistencia Legal Mutua con autoridades extranjeras.", "a": "sre", "r": "ENR 2023, III.5", "c": false}], "duelos": [{"id": "d1", "t": "Basilea · Wolfsberg · Egmont", "a": ["bcbs", "wolf", "egm"], "k": "Pregúntate quién se sienta a la mesa: supervisores, bancos o UIF.", "rows": [["Quién está", ["Supervisores bancarios", "Bancos", "Unidades de inteligencia financiera"]], ["Palabra clave", ["Regulación prudencial", "Asociación de bancos · corrupción", "Vínculos de cooperación"]], ["¿Es «foro»?", ["Sí: foro de cooperación en supervisión", "No: asociación", "Sí: foro de las UIF"]]]}, {"id": "d2", "t": "GAFI · GAFILAT", "a": ["gafi", "gafilat"], "k": "El GAFI fija estándares para el mundo; el GAFILAT es regional. Fíjate en el final de cada definición.", "rows": [["Qué es", ["Entidad intergubernamental", "Organización intergubernamental regional"]], ["Verbos", ["Fijar estándares y promover la efectiva implementación", "Prevenir y combatir"]], ["Cómo termina", ["«…y otras amenazas»", "«…proliferación de armas de destrucción masiva»"]], ["En el GAFI", ["Es el GAFI", "Miembro Asociado (FSRB)"]]]}, {"id": "d3", "t": "Pleno · Grupo Directivo", "a": ["pleno", "gd"], "k": "Los dos los preside el Presidente y los dos se reúnen por lo menos tres veces al año. Sólo el Pleno decide.", "rows": [["Naturaleza", ["Máximo órgano de decisión", "Órgano consultor"]], ["Cómo resuelve", ["Por consenso", "Asesora entre plenarias"]], ["Composición", ["Jurisdicciones Miembro y organizaciones", "La decide el Pleno a propuesta del Presidente; revisión anual"]]]}, {"id": "d4", "t": "Presidente · Vicepresidente · Secretaría", "a": ["pres", "vp", "secr"], "k": "Conduce · lo suple y lo sucede · ejecuta por sus instrucciones.", "rows": [["Papel", ["Convoca, preside, supervisa a la Secretaría, portavoz", "Presidente designado; apoya y suple", "Apoya, administra recursos y registros"]], ["Quién lo nombra", ["El Pleno, por un año (1-jul a 30-jun)", "El Pleno, el año anterior a su presidencia", "Secretario Ejecutivo: el Pleno, a propuesta del Presidente"]]]}, {"id": "d5", "t": "1267 · 1373", "a": ["r1267", "r1373"], "k": "1267 = lista del mundo: la arma la ONU (99). 1373 = lista de casa: la arma el país (01).", "rows": [["Quién designa", ["El Consejo de Seguridad (Comité 1267: Al-Qaida; 1988: Talibán)", "El propio país, nacional o supranacional"]], ["Inciso de la R.6", ["(i)", "(ii)"]], ["El país…", ["Sólo propone al comité", "Designa por iniciativa propia o a petición de otro país"]], ["Para salir", ["Solicitud al Consejo; Defensa del Pueblo (1904) para Al-Qaida", "Procedimiento nacional y revisión independiente"]], ["Gastos básicos", ["1452 (2002)", "1963 (2010)"]]]}, {"id": "d6", "t": "1718 · 1737 · 1540", "a": ["r1718", "r1737", "r1540"], "k": "Corea 1718, Irán 1737, las dos de 2006 y de la R.7. La 1540 (2004) va aparte.", "rows": [["Tema", ["RPDC: nucleares, ADM y misiles", "Irán: proliferación nuclear y sistemas vectores", "No proliferación en general"]], ["¿Base de SFD de la R.7?", ["Sí", "Sí (con 1747, 1803 y 1929)", "No: existe con independencia de la R.7"]]]}, {"id": "d7", "t": "UIF · CNBV", "a": ["uif", "cnbv"], "k": "La UIF recibe, analiza y denuncia; la CNBV supervisa y visita. La UIF sólo participa en la verificación y avisa del incumplimiento.", "rows": [["Verbo", ["Analizo y denuncio", "Superviso y visito"]], ["Reportes", ["Coordina su recepción y análisis (fr. VIII)", "No los analiza"]], ["DCG", ["Propone y opina (fr. I)", "Opina a la SHCP (art. 48 fr. III)"]], ["Lista de personas bloqueadas", ["La integra (fr. XXXIV)", "La envía a sus supervisadas (art. 48 fr. XVIII)"]], ["Exclusivo", ["Emite la ENR; denuncia ante el MPF", "Certifica profesionales; visitas ordinarias, especiales y de investigación"]]]}, {"id": "d8", "t": "Proponer · Opinar · Emitir", "a": ["uif", "cnbv", "shcp"], "k": "La UIF propone y opina, la CNBV opina, la SHCP emite.", "rows": [["DCG", ["Propone y emite opinión", "Emite opinión", "Las emite"]], ["Fundamento", ["RISHCP art. 10 fr. I", "RI CNBV art. 48 fr. III", "ENR 2023, III"]]]}, {"id": "d9", "t": "Supervisar · Sancionar", "a": ["cnbv", "dgds"], "k": "Las DG PLD A, B y C supervisan; la sanción la impone la DG de Delitos y Sanciones cuando la Junta de Gobierno se la delega.", "rows": [["Qué hace", ["Verifica, visita, certifica", "Da audiencia e impone la sanción"]], ["Fundamento", ["RI CNBV art. 48", "RI CNBV art. 41 fr. XI"]]]}, {"id": "d10", "t": "CNBV · SAT · CNSF y CONSAR", "a": ["cnbv", "sat", "cnsfc"], "k": "Supervisoras: tres del sistema financiero y una de actividades vulnerables.", "rows": [["A quién supervisa", ["Entidades financieras de su competencia", "Actividades vulnerables (LFPIORPI)", "Entidades financieras de su competencia"]]]}], "clase": "Clase 360Educa · fuera de la bibliografía del temario"}</script>
+<script>
+const D=JSON.parse(document.getElementById("datos").textContent);
+const A={};D.actores.forEach(a=>A[a.id]=a);
+D.hechos.forEach((h,i)=>h.i=i);
+const FAMC={org:"f-org",gafi:"f-gafi",memb:"f-memb",res:"f-res",mx:"f-mx"};
+const $=s=>document.querySelector(s);
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const shuf=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
+
+/* ---- errores guardados ---- */
+const KEY="qhq-m1-err";
+let ERR={};try{ERR=JSON.parse(localStorage.getItem(KEY)||"{}")||{}}catch(e){ERR={}}
+function saveErr(){try{localStorage.setItem(KEY,JSON.stringify(ERR))}catch(e){}}
+function addErr(i,chosen){const k=String(i);ERR[k]=ERR[k]||{n:0,con:{}};ERR[k].n++;if(chosen)ERR[k].con[chosen]=(ERR[k].con[chosen]||0)+1;saveErr()}
+
+/* ---- pestañas ---- */
+function show(p){document.querySelectorAll(".tab").forEach(t=>t.setAttribute("aria-selected",t.dataset.p===p));
+  document.querySelectorAll(".panel").forEach(s=>s.hidden=s.id!=="p-"+p);
+  if(p==="err")renderErr();try{localStorage.setItem("qhq-m1-tab",p)}catch(e){}window.scrollTo({top:0})}
+document.querySelectorAll(".tab").forEach(t=>t.onclick=()=>show(t.dataset.p));
+
+/* ---- selector de familia ---- */
+function famBar(el,cur,all,onPick){
+  const items=(all?[{k:"all",l:"Todo el Módulo 1"}]:[]).concat(D.fam);
+  el.innerHTML=items.map(f=>`<button class="fam ${f.k==="all"?"f-all":FAMC[f.k]}" data-k="${f.k}" aria-pressed="${f.k===cur}">${esc(f.l)}</button>`).join("");
+  el.querySelectorAll("button").forEach(b=>b.onclick=()=>{el.querySelectorAll("button").forEach(x=>x.setAttribute("aria-pressed",x===b));onPick(b.dataset.k)});
+}
+
+/* ---- 1 · Estudiar ---- */
+let famEst="org";
+function renderEst(){
+  const f=D.fam.find(x=>x.k===famEst);$("#famqEst").textContent=f.t+" · "+f.q;
+  $("#gridEst").innerHTML=D.actores.filter(a=>a.f===famEst).map(a=>{
+    const hs=D.hechos.filter(h=>h.a===a.id);
+    const conf=a.cf.map(c=>{const du=D.duelos.find(d=>d.a.includes(a.id)&&d.a.includes(c));
+      return `<button class="lnk" data-due="${du?du.id:""}" data-act="${c}">${esc(A[c].n)}</button>`}).join("");
+    return `<article class="card ${FAMC[a.f]}" id="a-${a.id}">
+      <div class="ch"><b>${esc(a.n)}</b><span>${esc(a.nl)}</span></div>
+      <div class="cb">
+        <div class="mesa"><b>A la mesa</b>${esc(a.mesa)}</div>
+        <div class="gancho">${esc(a.g)}</div>
+        <blockquote>${esc(a.d)}</blockquote><div class="src">${esc(a.src)}</div>
+        ${a.delata.length?`<div><div class="lbl">Palabras que lo delatan</div><div class="chips">${a.delata.map(w=>`<span class="chip">${esc(w)}</span>`).join("")}</div></div>`:""}
+        ${a.ex.length?`<ul style="margin:0;padding-left:18px;font-size:14px;display:grid;gap:4px">${a.ex.map(x=>`<li>${esc(x).replace(/^Clase 2018:/,'<span class="clase">Clase 360Educa</span>')}</li>`).join("")}</ul>`:""}
+        ${hs.length?`<details><summary>Lo que hace (${hs.length})</summary><ul>${hs.map(h=>`<li>${esc(h.t)}${h.c?' <span class="clase">Clase 360Educa</span>':""}<small>${esc(h.r)}</small></li>`).join("")}</ul></details>`:""}
+        <div class="conf"><span class="lbl">Lo confunden con</span>${conf}</div>
+      </div></article>`}).join("");
+  $("#gridEst").querySelectorAll(".lnk").forEach(b=>b.onclick=()=>{
+    if(b.dataset.due){show("due");const el=document.getElementById(b.dataset.due);if(el)el.scrollIntoView({behavior:"smooth"})}
+    else{const t=document.getElementById("a-"+b.dataset.act);if(t)t.scrollIntoView({behavior:"smooth"})}});
+}
+famBar($("#famsEst"),famEst,false,k=>{famEst=k;renderEst()});renderEst();
+
+/* ---- 2 · Duelos ---- */
+$("#duelos").innerHTML=D.duelos.map(d=>{const f=A[d.a[0]].f;
+  return `<article class="duelo ${FAMC[f]}" id="${d.id}"><h3>${esc(d.t)}</h3><p class="clave">${esc(d.k)}</p>
+  <div class="tw"><table><thead><tr><th></th>${d.a.map(x=>`<th>${esc(A[x].n)}</th>`).join("")}</tr></thead>
+  <tbody>${d.rows.map(r=>`<tr><th scope="row">${esc(r[0])}</th>${r[1].map(c=>`<td>${esc(c)}</td>`).join("")}</tr>`).join("")}</tbody></table></div>
+  <div class="row"><button class="btn" data-dq="${d.id}">Practicar este duelo</button><button class="btn sec" data-dr="${d.id}">Relacionar este duelo</button></div></article>`}).join("");
+$("#duelos").querySelectorAll("[data-dq]").forEach(b=>b.onclick=()=>{const d=D.duelos.find(x=>x.id===b.dataset.dq);show("qui");startQuiz(D.hechos.filter(h=>d.a.includes(h.a)),"Duelo: "+d.t,d.a)});
+$("#duelos").querySelectorAll("[data-dr]").forEach(b=>b.onclick=()=>{const d=D.duelos.find(x=>x.id===b.dataset.dr);show("rel");newRel(d.a,"Duelo: "+d.t)});
+
+/* ---- 3 · Quiz ---- */
+let famQ="all",lenQ=10;
+famBar($("#famsQui"),famQ,true,k=>famQ=k);
+[["len10",10],["len20",20],["lenAll",999]].forEach(([id,n])=>$("#"+id).onclick=()=>{lenQ=n;["len10","len20","lenAll"].forEach(x=>$("#"+x).setAttribute("aria-pressed",x===id))});
+$("#qStart").onclick=()=>{const pool=D.hechos.filter(h=>famQ==="all"||A[h.a].f===famQ);startQuiz(pool,famQ==="all"?"Todo el Módulo 1":D.fam.find(f=>f.k===famQ).l)};
+
+function opciones(h,limite){
+  const a=A[h.a],nx=a.nx||[];
+  let fam=D.actores.filter(x=>x.f===a.f&&x.id!==a.id&&!nx.includes(x.id)&&!(x.nx||[]).includes(a.id));
+  if(limite)fam=fam.filter(x=>limite.includes(x.id)).concat(fam.filter(x=>!limite.includes(x.id)));
+  const pref=fam.filter(x=>a.cf.includes(x.id)||(limite&&limite.includes(x.id)));
+  const resto=shuf(fam.filter(x=>!pref.includes(x)));
+  const dis=shuf(pref).concat(resto).slice(0,3);
+  return shuf([a].concat(dis));
+}
+let Q=null;
+function startQuiz(pool,nombre,limite){
+  if(!pool.length){$("#qArea").innerHTML='<div class="vacio">No hay frases para practicar aquí todavía.</div>';return}
+  const cola=shuf(pool).slice(0,Math.min(lenQ,pool.length));
+  Q={cola,i:0,ok:0,total:cola.length,racha:0,nombre,limite,pool,fall:[],vuelta:new Set()};
+  renderQ();$("#qArea").scrollIntoView({behavior:"smooth",block:"start"});
+}
+function renderQ(){
+  if(Q.i>=Q.cola.length)return finQ();
+  const h=Q.cola[Q.i],ops=opciones(h,Q.limite),pct=Math.round(100*Q.i/Q.cola.length);
+  $("#qArea").innerHTML=`<div class="qbox ${FAMC[A[h.a].f]}">
+    <div class="qmeta"><span>${esc(Q.nombre)}</span><span>Pregunta ${Q.i+1} de ${Q.cola.length}</span><span>Aciertos ${Q.ok}</span><span>Racha ${Q.racha}</span></div>
+    <div class="bar"><i style="width:${pct}%"></i></div>
+    <p class="frag">${esc(h.t)}</p>
+    <div class="opts">${ops.map(o=>`<button class="opt" data-id="${o.id}">${esc(o.n)}<small>${esc(o.nl)}</small></button>`).join("")}</div>
+    <div id="qfb"></div></div>`;
+  document.querySelectorAll(".opt").forEach(b=>b.onclick=()=>responder(h,b.dataset.id));
+}
+function responder(h,id){
+  const bien=id===h.a,a=A[h.a];
+  document.querySelectorAll(".opt").forEach(b=>{b.disabled=true;if(b.dataset.id===h.a)b.classList.add("ok");else if(b.dataset.id===id)b.classList.add("mal")});
+  if(bien){Q.ok+=Q.vuelta.has(h.i)?0:1;Q.racha++}
+  else{Q.racha=0;addErr(h.i,id);if(!Q.vuelta.has(h.i)){Q.vuelta.add(h.i);Q.fall.push(h);Q.cola.splice(Math.min(Q.i+4,Q.cola.length),0,h)}}
+  const elegido=A[id];
+  $("#qfb").innerHTML=`<div class="fb ${bien?"ok":"mal"}">
+    <b class="v">${bien?"Correcto: "+esc(a.n):"Era "+esc(a.n)}</b>
+    <span><b>Gancho:</b> ${esc(a.g)}</span>
+    ${bien?"":`<span><b>${esc(elegido.n)}</b> es otra cosa: ${esc(elegido.g)}</span>`}
+    <small>${esc(h.r)}${h.c?" · Clase 360Educa":""}</small>
+    <div class="row"><button class="btn" id="qNext">${Q.i+1<Q.cola.length?"Siguiente":"Ver resultado"}</button></div></div>`;
+  $("#qNext").focus();$("#qNext").onclick=()=>{Q.i++;renderQ()};
+}
+function finQ(){
+  const unicos=Q.total;const pct=Math.round(100*Q.ok/unicos);
+  $("#qArea").innerHTML=`<div class="qbox"><div class="fin"><div class="lbl">${esc(Q.nombre)}</div>
+    <div class="big">${Q.ok} / ${unicos}</div><div>${pct}% a la primera. ${pct>=80?"Ya lo dominas; cambia de familia o prueba «Todo el Módulo 1».":"Repasa las tarjetas de los actores que fallaste y vuelve a intentar."}</div>
+    ${Q.fall.length?`<div><div class="lbl">Fallaste</div><ul style="margin:6px 0 0;padding-left:18px;display:grid;gap:4px">${Q.fall.map(h=>`<li>${esc(h.t)} <b>→ ${esc(A[h.a].n)}</b></li>`).join("")}</ul></div>`:""}
+    <div class="row"><button class="btn" id="qAgain">Otra ronda igual</button></div></div></div>`;
+  $("#qAgain").onclick=()=>startQuiz(Q.pool,Q.nombre,Q.limite);
+}
+
+/* ---- 4 · Relaciona ---- */
+let famR="org",R=null;
+famBar($("#famsRel"),famR,false,k=>{famR=k;newRel()});
+$("#rNew").onclick=()=>newRel(R&&R.lim,R&&R.nom);
+function newRel(lim,nom){
+  if(!lim)nom=null;
+  const actores=shuf(D.actores.filter(a=>lim?lim.includes(a.id):a.f===famR).filter(a=>D.hechos.some(h=>h.a===a.id))).slice(0,5);
+  const pares=actores.map(a=>({a:a.id,h:shuf(D.hechos.filter(h=>h.a===a.id))[0]}));
+  R={pares,izq:shuf(pares),der:shuf(pares.map(p=>p.a)),sel:null,hechos:0,err:0,lim,nom};
+  renderRel();
+}
+function renderRel(){
+  const fam=R.lim?A[R.lim[0]].f:famR;
+  $("#rMeta").textContent=(R.nom?R.nom+" · ":"")+`Pares ${R.hechos} de ${R.pares.length} · Errores ${R.err}`;
+  $("#rArea").className="rel "+FAMC[fam];
+  $("#rArea").innerHTML=`<div class="rcol">${R.izq.map((p,k)=>`<button class="ri ${p.ok?"hecho":""} ${R.sel===k?"sel":""}" data-l="${k}" ${p.ok?"disabled":""}><span class="n">${p.ok?p.num:"?"}</span><span>${esc(p.h.t)}</span></button>`).join("")}</div>
+   <div class="rcol">${R.der.map(id=>{const p=R.pares.find(x=>x.a===id);return `<button class="ri act ${p.ok?"hecho":""}" data-r="${id}" ${p.ok?"disabled":""}><span class="n">${p.ok?p.num:""}</span><span>${esc(A[id].n)}</span></button>`}).join("")}</div>`;
+  $("#rArea").querySelectorAll("[data-l]").forEach(b=>b.onclick=()=>{R.sel=+b.dataset.l;renderRel()});
+  $("#rArea").querySelectorAll("[data-r]").forEach(b=>b.onclick=()=>{
+    if(R.sel===null)return;const p=R.izq[R.sel];
+    if(p.a===b.dataset.r){p.ok=true;R.hechos++;p.num=R.hechos;R.sel=null;renderRel();
+      if(R.hechos===R.pares.length)$("#rMeta").textContent+=R.err?" · Ronda completa":" · ¡Perfecto!";}
+    else{R.err++;addErr(p.h.i,b.dataset.r);b.classList.add("err");setTimeout(()=>b.classList.remove("err"),400);
+      $("#rMeta").textContent=(R.nom?R.nom+" · ":"")+`Pares ${R.hechos} de ${R.pares.length} · Errores ${R.err} · No: ${A[b.dataset.r].n} es «${A[b.dataset.r].g}»`}
+  });
+}
+newRel();
+
+/* ---- 5 · Mis errores ---- */
+function renderErr(){
+  const ks=Object.keys(ERR).filter(k=>D.hechos[k]);
+  if(!ks.length){$("#eArea").innerHTML='<div class="vacio">Todavía no hay errores guardados. Haz una ronda en «¿De quién es?» o en «Relaciona» y aquí aparecerá lo que más te cuesta.</div>';return}
+  const porActor={};ks.forEach(k=>{const a=D.hechos[k].a;porActor[a]=(porActor[a]||0)+ERR[k].n});
+  const top=Object.entries(porActor).sort((x,y)=>y[1]-x[1]);
+  const frases=ks.sort((x,y)=>ERR[y].n-ERR[x].n).slice(0,15);
+  $("#eArea").innerHTML=`<div class="errs"><div class="lbl">Actores que más fallas</div>
+   ${top.map(([a,n])=>`<div class="erow"><span class="cnt">${n}</span><span><b>${esc(A[a].n)}</b> · ${esc(A[a].g)}</span></div>`).join("")}
+   <div class="lbl" style="margin-top:10px">Frases que más fallas</div>
+   ${frases.map(k=>{const h=D.hechos[k],con=Object.entries(ERR[k].con).sort((x,y)=>y[1]-x[1])[0];
+     return `<div class="erow"><span class="cnt">${ERR[k].n}</span><span>${esc(h.t)}<br><b>→ ${esc(A[h.a].n)}</b>${con?` <small>(la confundiste con ${esc(A[con[0]]?A[con[0]].n:con[0])})</small>`:""}</span></div>`}).join("")}</div>`;
+}
+$("#eQuiz").onclick=()=>{const ks=Object.keys(ERR).filter(k=>D.hechos[k]);show("qui");startQuiz(ks.map(k=>D.hechos[k]),"Mis errores")};
+$("#eClear").onclick=()=>{ERR={};saveErr();renderErr()};
+
+let ini="est";try{ini=localStorage.getItem("qhq-m1-tab")||"est"}catch(e){}
+if(location.hash&&/^#(est|due|qui|rel|err)$/.test(location.hash))ini=location.hash.slice(1);
+show(ini);
+</script>
+
+</body></html>

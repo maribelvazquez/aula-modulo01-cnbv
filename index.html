@@ -138,78 +138,200 @@ footer p{margin:0;max-width:70ch}
 </footer>
 
 <script>
-/* ===== CONFIGURACIÓN DE LIGAS =====
-   Las herramientas apuntan a las carpetas del propio sitio (rutas relativas): funcionan igual en la vista
-   del artifact y en Netlify, sin cambiar nada. Una liga vacía ("") muestra la entrada como «Próximamente».
-   Biblioteca: ligas oficiales del temario de agosto 2026. */
+/* ===== DATOS DE LA PORTADA · generados por armar_aula.py desde aula.json; no se editan a mano ===== */
 const LIGAS = {
-  herramientas: {
-    "1.1.1": "m1-s1-conceptos/index.html#etapas",
-    "1.1.2": "m1-s1-conceptos/index.html#lista-ft",
-    "1.1.3": "m1-s1-conceptos/index.html#corrupcion",
-    "1.1.4": "m1-s1-conceptos/index.html#comparativo",
-    "1.1.5": "m1-s1-conceptos/index.html#comparativo",
-    "1.2.1": "m1-s2-organismos/index.html#mapa",
-    "1.2.2": "m1-s2-organismos/index.html#organos",
-    "1.2.3": "m1-s3-recomendaciones/index.html#mapa",
-    "1.3.1": "m1-s4-autoridades/index.html#objeto",
-    "1.3.2": "m1-s4-autoridades/index.html#uif",
-    "simulacro": "m1-simulacro/index.html"
-  },
-  biblioteca: {
-    "VSPP": "https://www.cnbv.gob.mx/PrevencionDeLavadoDeDinero/Documents/VSPP_La_de_Di_300419.pdf",
-    "CPF": "https://www.diputados.gob.mx/LeyesBiblio/pdf/CPF.pdf",
-    "RI CNBV": "https://www.cnbv.gob.mx/Normatividad/Reglamento%20Interior%20de%20la%20Comisi%C3%B3n%20Nacional%20Bancaria%20y%20de%20Valores.pdf",
-    "RISHCP": "https://www.gob.mx/cms/uploads/attachment/file/1003083/RISCHP_compilado_24febrero2025.pdf",
-    "GAFI 40": "https://biblioteca.gafilat.org/wp-content/uploads/2026/01/Recomendaciones-y-Metodologia-Diciembre-2025.pdf",
-    "Mandato": "https://www.cnbv.gob.mx/PrevencionDeLavadoDeDinero/Documents/Mandato_GAFI_2012-2020%20ESP%20versi%C3%B3n%20final%20mayo11.pdf",
-    "OI": "https://www.gob.mx/cnbv/acciones-y-programas/organismos-internacionales-388698",
-    "ENR": "https://www.pld.hacienda.gob.mx/work/models/PLD/documentos/enr2023.pdf",
-    "GA": "https://www.cnbv.gob.mx/PrevencionDeLavadoDeDinero/Documents/Guia_Anticorrupcion_2020.pdf"
-  }
+ "herramientas": {
+  "1.1.1": "m1-s1-conceptos/index.html#etapas",
+  "1.1.2": "m1-s1-conceptos/index.html#lista-ft",
+  "1.1.3": "m1-s1-conceptos/index.html#corrupcion",
+  "1.1.4": "m1-s1-conceptos/index.html#comparativo",
+  "1.1.5": "m1-s1-conceptos/index.html#comparativo",
+  "1.2.1": "m1-s2-organismos/index.html#mapa",
+  "1.2.2": "m1-s2-organismos/index.html#organos",
+  "1.2.3": "m1-s3-recomendaciones/index.html#mapa",
+  "1.3.1": "m1-s4-autoridades/index.html#objeto",
+  "1.3.2": "m1-s4-autoridades/index.html#uif",
+  "simulacro": "m1-simulacro/index.html",
+  "extra:qhq": "m1-quien-hace-que/index.html"
+ },
+ "biblioteca": {
+  "VSPP": "https://www.cnbv.gob.mx/PrevencionDeLavadoDeDinero/Documents/VSPP_La_de_Di_300419.pdf",
+  "CPF": "https://www.diputados.gob.mx/LeyesBiblio/pdf/CPF.pdf",
+  "RI CNBV": "https://www.cnbv.gob.mx/Normatividad/Reglamento%20Interior%20de%20la%20Comisi%C3%B3n%20Nacional%20Bancaria%20y%20de%20Valores.pdf",
+  "RISHCP": "https://www.gob.mx/cms/uploads/attachment/file/1003083/RISCHP_compilado_24febrero2025.pdf",
+  "GAFI 40": "https://biblioteca.gafilat.org/wp-content/uploads/2026/01/Recomendaciones-y-Metodologia-Diciembre-2025.pdf",
+  "Mandato": "https://www.cnbv.gob.mx/PrevencionDeLavadoDeDinero/Documents/Mandato_GAFI_2012-2020%20ESP%20versi%C3%B3n%20final%20mayo11.pdf",
+  "OI": "https://www.gob.mx/cnbv/acciones-y-programas/organismos-internacionales-388698",
+  "ENR": "https://www.pld.hacienda.gob.mx/work/models/PLD/documentos/enr2023.pdf",
+  "GA": "https://www.cnbv.gob.mx/PrevencionDeLavadoDeDinero/Documents/Guia_Anticorrupcion_2020.pdf"
+ }
 };
-/* ===== FIN DE CONFIGURACIÓN ===== */
-
 const GRUPOS = [
-  {clave:"1.1", nombre:"Conceptos básicos PLD/FT", temas:[
-    {n:"1.1.1", t:"Lavado de dinero", f:"Sesión 1 · VSPP «Lavado de Dinero», CNBV, 30-abr-2019", q:"El concepto de la CNBV y las tres etapas con sus ejemplos: colocación, estratificación e integración."},
-    {n:"1.1.2", t:"Financiamiento al terrorismo", f:"Sesión 1 · CPF, art. 139 Quáter", q:"Aportar o recaudar sabiendo el destino, y la lista de delitos cuyo financiamiento es FT: cinco del CPF y una ley especial."},
-    {n:"1.1.3", t:"Corrupción", f:"Sesión 1 · Guía Anticorrupción CNBV 2020, apartado I.1.3", q:"La definición de Transparencia Internacional y sus tres tipos: a gran escala, actos menores y política."},
-    {n:"1.1.4", t:"Penas del delito de operaciones con recursos de procedencia ilícita", f:"Sesión 1 · CPF, arts. 400 Bis y 400 Bis 1", q:"De 5 a 15 años y de 1,000 a 5,000 días multa, los tres agravantes y la denuncia de la SHCP."},
-    {n:"1.1.5", t:"Penas del delito de financiamiento al terrorismo", f:"Sesión 1 · CPF, arts. 139 Quáter, 139 y 139 Quinquies", q:"La misma pena del terrorismo: de 15 a 40 años y de 400 a 1,200 veces la UMA; y la pena por encubrir."}
-  ]},
-  {clave:"1.2", nombre:"Organismos internacionales", temas:[
-    {n:"1.2.1", t:"Organismos y foros internacionales", f:"Sesión 2 · CNBV, Organismos internacionales; NI R.6, R.7 y R.29", q:"ONU, Basilea, Wolfsberg, Egmont, GAFI y GAFILAT, y las resoluciones 1267, 1373 y 1540 del Consejo de Seguridad."},
-    {n:"1.2.2", t:"Grupo de Acción Financiera Internacional", f:"Sesión 2 · Mandato del GAFI 2012-2020; Metodología dic-2025", q:"Quién decide, conduce, aconseja y ejecuta: Pleno, Presidente, Grupo Directivo y Secretaría; membresía y calificaciones."},
-    {n:"1.2.3", t:"Recomendaciones del GAFI", f:"Sesión 3 · Las 40 Recomendaciones y sus Notas interpretativas", q:"Las 40 en sus siete secciones, de la A a la G, lo que agrega cada Nota y las parejas que se confunden."}
-  ]},
-  {clave:"1.3", nombre:"Autoridades nacionales", temas:[
-    {n:"1.3.1", t:"Régimen de prevención", f:"Sesión 4 · ENR 2023; VSPP, participantes del régimen preventivo", q:"La vida de un reporte: quién pone las reglas, quién cumple y vigila, quién analiza y quién persigue."},
-    {n:"1.3.2", t:"Autoridades nacionales en PLD/FT", f:"Sesión 4 · RISHCP, art. 10; Reglamento Interior de la CNBV", q:"Qué hace la UIF y qué hace la CNBV: recibir y analizar no es supervisar, y supervisar no es sancionar."}
-  ]}
+ {
+  "clave": "1.1",
+  "nombre": "Conceptos básicos PLD/FT",
+  "temas": [
+   {
+    "n": "1.1.1",
+    "t": "Lavado de dinero",
+    "f": "Sesión 1 · VSPP «Lavado de Dinero», CNBV, 30-abr-2019",
+    "q": "El concepto de la CNBV y las tres etapas con sus ejemplos: colocación, estratificación e integración."
+   },
+   {
+    "n": "1.1.2",
+    "t": "Financiamiento al terrorismo",
+    "f": "Sesión 1 · CPF, art. 139 Quáter",
+    "q": "Aportar o recaudar sabiendo el destino, y la lista de delitos cuyo financiamiento es FT: cinco del CPF y una ley especial."
+   },
+   {
+    "n": "1.1.3",
+    "t": "Corrupción",
+    "f": "Sesión 1 · Guía Anticorrupción CNBV 2020, apartado I.1.3",
+    "q": "La definición de Transparencia Internacional y sus tres tipos: a gran escala, actos menores y política."
+   },
+   {
+    "n": "1.1.4",
+    "t": "Penas del delito de operaciones con recursos de procedencia ilícita",
+    "f": "Sesión 1 · CPF, arts. 400 Bis y 400 Bis 1",
+    "q": "De 5 a 15 años y de 1,000 a 5,000 días multa, los tres agravantes y la denuncia de la SHCP."
+   },
+   {
+    "n": "1.1.5",
+    "t": "Penas del delito de financiamiento al terrorismo",
+    "f": "Sesión 1 · CPF, arts. 139 Quáter, 139 y 139 Quinquies",
+    "q": "La misma pena del terrorismo: de 15 a 40 años y de 400 a 1,200 veces la UMA; y la pena por encubrir."
+   }
+  ]
+ },
+ {
+  "clave": "1.2",
+  "nombre": "Organismos internacionales",
+  "temas": [
+   {
+    "n": "1.2.1",
+    "t": "Organismos y foros internacionales",
+    "f": "Sesión 2 · CNBV, Organismos internacionales; NI R.6, R.7 y R.29",
+    "q": "ONU, Basilea, Wolfsberg, Egmont, GAFI y GAFILAT, y las resoluciones 1267, 1373 y 1540 del Consejo de Seguridad."
+   },
+   {
+    "n": "1.2.2",
+    "t": "Grupo de Acción Financiera Internacional",
+    "f": "Sesión 2 · Mandato del GAFI 2012-2020; Metodología dic-2025",
+    "q": "Quién decide, conduce, aconseja y ejecuta: Pleno, Presidente, Grupo Directivo y Secretaría; membresía y calificaciones."
+   },
+   {
+    "n": "1.2.3",
+    "t": "Recomendaciones del GAFI",
+    "f": "Sesión 3 · Las 40 Recomendaciones y sus Notas interpretativas",
+    "q": "Las 40 en sus siete secciones, de la A a la G, lo que agrega cada Nota y las parejas que se confunden."
+   }
+  ]
+ },
+ {
+  "clave": "1.3",
+  "nombre": "Autoridades nacionales",
+  "temas": [
+   {
+    "n": "1.3.1",
+    "t": "Régimen de prevención",
+    "f": "Sesión 4 · ENR 2023; VSPP, participantes del régimen preventivo",
+    "q": "La vida de un reporte: quién pone las reglas, quién cumple y vigila, quién analiza y quién persigue."
+   },
+   {
+    "n": "1.3.2",
+    "t": "Autoridades nacionales en PLD/FT",
+    "f": "Sesión 4 · RISHCP, art. 10; Reglamento Interior de la CNBV",
+    "q": "Qué hace la UIF y qué hace la CNBV: recibir y analizar no es supervisar, y supervisar no es sancionar."
+   }
+  ]
+ }
 ];
-
-const SIMULACRO = {n:"Área 1", t:"Simulacro mixto del Módulo 1", f:"Los bancos de todas las sesiones, con sus ids originales", q:"Simulacros de 30 o 50 que mezclan los temas como en el examen: S3 30 % · S2 27 % · S1 23 % · S4 20 %."};
-
+const EXTRAS = {
+ "grupo": {
+  "clave": "Área 1",
+  "nombre": "Para entrenar"
+ },
+ "entradas": [
+  {
+   "n": "¿Quién?",
+   "t": "¿Quién hace qué?",
+   "f": "Entrenador · temas 1.2.1, 1.2.2 y 1.3",
+   "q": "Organismos, GAFI por dentro, resoluciones de la ONU y autoridades: tarjetas con gancho, duelos de pares que se confunden y práctica con distractores.",
+   "boton": "Abrir el entrenador",
+   "id": "extra:qhq"
+  }
+ ]
+};
+const SIMULACRO = {
+ "n": "Área 1",
+ "t": "Simulacro mixto del Módulo 1",
+ "f": "Los bancos de todas las sesiones, con sus ids originales",
+ "q": "Simulacros de 30 o 50 que mezclan los temas como en el examen: S3 30 % · S2 27 % · S1 23 % · S4 20 %."
+};
 const FUENTES = [
-  {e:"VSPP", nombre:"Documento de la CNBV relativo al lavado de dinero", fecha:"CNBV · 30-abr-2019", norma:false,
-   uso:"Concepto y etapas del lavado (1.1.1) y participantes del régimen preventivo (1.3.1). No es norma: es material informativo de la CNBV."},
-  {e:"CPF", nombre:"Código Penal Federal", fecha:"DOF 14-ago-1931 · última reforma 13-mar-2026", norma:true,
-   uso:"Los delitos de operaciones con recursos de procedencia ilícita (art. 400 Bis) y de FT (art. 139 Quáter), con sus penas. Se estudia en 1.1.2, 1.1.4 y 1.1.5."},
-  {e:"RI CNBV", nombre:"Reglamento Interior de la Comisión Nacional Bancaria y de Valores", fecha:"DOF 28-feb-2022", norma:true,
-   uso:"Facultades de la CNBV y de sus direcciones generales de prevención de operaciones con recursos de procedencia ilícita. Se estudia en 1.3.2."},
-  {e:"RISHCP", nombre:"Reglamento Interior de la SHCP · artículo 10", fecha:"Como lo cita el temario: DOF 11-sep-1996, última reforma 24-feb-2025", norma:true,
-   uso:"Las atribuciones de la Unidad de Inteligencia Financiera. Se estudia en 1.3.2. La liga del temario lleva al compilado del Reglamento publicado el 6-mar-2023, con reformas de 2024 y 2025."},
-  {e:"GAFI 40", nombre:"Estándares internacionales sobre la lucha contra el lavado de activos, el financiamiento del terrorismo y la proliferación (40 Recomendaciones del GAFI)", fecha:"GAFI · diciembre 2025", norma:false,
-   uso:"Las 40 Recomendaciones, sus Notas interpretativas y la Metodología. Se estudia en 1.2.3; la Sesión 2 usa además las R.6, R.7 y R.29. No es norma mexicana: es el estándar internacional."},
-  {e:"Mandato", nombre:"Grupo de Acción Financiera Internacional · Mandato (2012-2020)", fecha:"GAFI · abril 2012", norma:false,
-   uso:"Objetivos, órganos y membresía del GAFI. Se estudia en 1.2.2. No es norma: el propio Mandato dice que no está destinado a crear derechos u obligaciones legales (párr. 48)."},
-  {e:"OI", nombre:"Organismos internacionales: Comité de Basilea, GAFI, Grupo Egmont y Grupo Wolfsberg", fecha:"CNBV · gob.mx", norma:false,
-   uso:"Cómo define la CNBV a cada organismo y foro. Se estudia en 1.2.1. No es norma: es la página informativa de la CNBV."},
-  {e:"ENR", nombre:"Evaluación Nacional de Riesgos de LD y FT 2023", fecha:"Noviembre 2023", norma:false,
-   uso:"Cómo describe la autoridad el régimen de prevención y a sus participantes. Se estudia en 1.3.1. No es norma: es un diagnóstico de la autoridad."},
-  {e:"GA", nombre:"Guía Anticorrupción CNBV · Apartado I.1.3 Transparencia Internacional", fecha:"2020", norma:false,
-   uso:"La definición y los tipos de corrupción de Transparencia Internacional. Se estudia en 1.1.3. No es norma: es una guía de la CNBV."}
+ {
+  "e": "VSPP",
+  "nombre": "Documento de la CNBV relativo al lavado de dinero",
+  "fecha": "CNBV · 30-abr-2019",
+  "norma": false,
+  "uso": "Concepto y etapas del lavado (1.1.1) y participantes del régimen preventivo (1.3.1). No es norma: es material informativo de la CNBV."
+ },
+ {
+  "e": "CPF",
+  "nombre": "Código Penal Federal",
+  "fecha": "DOF 14-ago-1931 · última reforma 13-mar-2026",
+  "norma": true,
+  "uso": "Los delitos de operaciones con recursos de procedencia ilícita (art. 400 Bis) y de FT (art. 139 Quáter), con sus penas. Se estudia en 1.1.2, 1.1.4 y 1.1.5."
+ },
+ {
+  "e": "RI CNBV",
+  "nombre": "Reglamento Interior de la Comisión Nacional Bancaria y de Valores",
+  "fecha": "DOF 28-feb-2022",
+  "norma": true,
+  "uso": "Facultades de la CNBV y de sus direcciones generales de prevención de operaciones con recursos de procedencia ilícita. Se estudia en 1.3.2."
+ },
+ {
+  "e": "RISHCP",
+  "nombre": "Reglamento Interior de la SHCP · artículo 10",
+  "fecha": "Como lo cita el temario: DOF 11-sep-1996, última reforma 24-feb-2025",
+  "norma": true,
+  "uso": "Las atribuciones de la Unidad de Inteligencia Financiera. Se estudia en 1.3.2. La liga del temario lleva al compilado del Reglamento publicado el 6-mar-2023, con reformas de 2024 y 2025."
+ },
+ {
+  "e": "GAFI 40",
+  "nombre": "Estándares internacionales sobre la lucha contra el lavado de activos, el financiamiento del terrorismo y la proliferación (40 Recomendaciones del GAFI)",
+  "fecha": "GAFI · diciembre 2025",
+  "norma": false,
+  "uso": "Las 40 Recomendaciones, sus Notas interpretativas y la Metodología. Se estudia en 1.2.3; la Sesión 2 usa además las R.6, R.7 y R.29. No es norma mexicana: es el estándar internacional."
+ },
+ {
+  "e": "Mandato",
+  "nombre": "Grupo de Acción Financiera Internacional · Mandato (2012-2020)",
+  "fecha": "GAFI · abril 2012",
+  "norma": false,
+  "uso": "Objetivos, órganos y membresía del GAFI. Se estudia en 1.2.2. No es norma: el propio Mandato dice que no está destinado a crear derechos u obligaciones legales (párr. 48)."
+ },
+ {
+  "e": "OI",
+  "nombre": "Organismos internacionales: Comité de Basilea, GAFI, Grupo Egmont y Grupo Wolfsberg",
+  "fecha": "CNBV · gob.mx",
+  "norma": false,
+  "uso": "Cómo define la CNBV a cada organismo y foro. Se estudia en 1.2.1. No es norma: es la página informativa de la CNBV."
+ },
+ {
+  "e": "ENR",
+  "nombre": "Evaluación Nacional de Riesgos de LD y FT 2023",
+  "fecha": "Noviembre 2023",
+  "norma": false,
+  "uso": "Cómo describe la autoridad el régimen de prevención y a sus participantes. Se estudia en 1.3.1. No es norma: es un diagnóstico de la autoridad."
+ },
+ {
+  "e": "GA",
+  "nombre": "Guía Anticorrupción CNBV · Apartado I.1.3 Transparencia Internacional",
+  "fecha": "2020",
+  "norma": false,
+  "uso": "La definición y los tipos de corrupción de Transparencia Internacional. Se estudia en 1.1.3. No es norma: es una guía de la CNBV."
+ }
 ];
 
 const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
@@ -232,7 +354,11 @@ document.getElementById("entradas").innerHTML = GRUPOS.map(g => `
   <div class="grupo">
     <h3><b>${g.clave}</b>${esc(g.nombre)}</h3>
     ${g.temas.map(x => entrada(x, LIGAS.herramientas[x.n], "Abrir herramienta")).join("")}
-  </div>`).join("") + `
+  </div>`).join("") + ((typeof EXTRAS!=="undefined" && EXTRAS.entradas.length) ? `
+  <div class="grupo">
+    <h3><b>${esc(EXTRAS.grupo.clave)}</b>${esc(EXTRAS.grupo.nombre)}</h3>
+    ${EXTRAS.entradas.map(x => entrada(x, LIGAS.herramientas[x.id], x.boton || "Abrir herramienta")).join("")}
+  </div>` : "") + `
   <div class="grupo">
     <h3><b>Área 1</b>Para cerrar</h3>
     ${entrada(SIMULACRO, LIGAS.herramientas.simulacro, "Hacer el simulacro")}
