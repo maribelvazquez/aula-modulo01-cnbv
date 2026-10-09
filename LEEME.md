@@ -1,6 +1,6 @@
 # Aula del Repaso · Módulo 1
 
-Aula de 360Educa (GMC360) armada con `armar_aula.py` el 05/10/2026 · v3.
+Aula de 360Educa (GMC360) armada con `armar_aula.py` el 09/10/2026 · v4.
 
 | Carpeta | Contenido |
 |---|---|
