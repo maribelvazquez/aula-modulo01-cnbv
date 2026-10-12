@@ -1,6 +1,6 @@
 # Aula del Repaso · Módulo 1
 
-Aula de 360Educa (GMC360) armada con `armar_aula.py` el 11/10/2026 · v5.
+Aula de 360Educa (GMC360) armada con `armar_aula.py` el 11/10/2026 · v6.
 
 | Carpeta | Contenido |
 |---|---|
@@ -10,7 +10,7 @@ Aula de 360Educa (GMC360) armada con `armar_aula.py` el 11/10/2026 · v5.
 | `m1-s3-recomendaciones/` | S3 · Las 40 Recomendaciones (mapa) |
 | `m1-s4-autoridades/` | S4 · Autoridades nacionales (mapa) |
 | `m1-quien-hace-que/` | ¿Quién hace qué? · entrenador (externa) |
-| `m1-simulacro/` | Simulacro mixto: 526 reactivos, S3 30 % · S2 27 % · S1 23 % · S4 20 % |
+| `m1-simulacro/` | Simulacro mixto: 529 reactivos, S3 30 % · S2 27 % · S1 23 % · S4 20 % |
 
 ## Reactivos que no entraron al simulacro (con su motivo)
 - G097: reforma jun-2026, fuera de la bibliografía
